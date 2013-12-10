@@ -1,0 +1,81 @@
+#N canvas 19 41 721 600 10;
+#X obj 229 253 mtr;
+#X msg 47 148 stop \, record;
+#X msg 47 169 stop;
+#X obj 80 400 print;
+#X msg 135 169 stop;
+#X msg 135 148 stop \, rewind \, play;
+#X obj 47 127 sel 1 0;
+#X obj 135 127 sel 1 0;
+#X obj 47 64 tgl 50 0 empty empty RECORD 2 -6 0 10 -262144 -1 -1 0
+1;
+#X obj 135 64 tgl 50 0 empty empty PLAY 2 -6 0 10 -262144 -1 -1 0 1
+;
+#X obj 343 70 bng 15 250 50 0 empty empty load_from_file 17 7 0 10
+-262144 -1 -1;
+#X obj 343 92 bng 15 250 50 0 empty empty write_recorded_file 17 7
+0 10 -262144 -1 -1;
+#X msg 300 91 write;
+#X msg 300 69 read;
+#X obj 121 400 print recorded;
+#X obj 522 291 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 522 309 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 522 327 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 460 358 jl.pak3;
+#X text 387 158 set to 9786 (from FoB);
+#X text 481 266 simple simulation test;
+#X obj 519 244 unpack f f f;
+#X obj 519 222 route aerodrum;
+#X obj 307 182 prepend 1;
+#X obj 519 200 route 1;
+#X obj 340 513 sendOSC;
+#X msg 412 450 connect localhost 8000;
+#X obj 300 429 route 1;
+#X obj 300 451 prepend send;
+#X obj 460 379 prepend 1;
+#X msg 412 471 disconnect;
+#X obj 307 158 dumpOSC 9788;
+#X obj 136 333 route 1;
+#X obj 136 354 route /bump;
+#X obj 112 351 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 412 429 connect localhost 9786;
+#X connect 0 1 24 0;
+#X connect 0 1 27 0;
+#X connect 0 1 32 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 4 0 0 0;
+#X connect 5 0 0 0;
+#X connect 6 0 1 0;
+#X connect 6 1 2 0;
+#X connect 7 0 5 0;
+#X connect 7 1 4 0;
+#X connect 8 0 6 0;
+#X connect 9 0 7 0;
+#X connect 10 0 13 0;
+#X connect 11 0 12 0;
+#X connect 12 0 0 0;
+#X connect 13 0 0 0;
+#X connect 15 0 18 0;
+#X connect 16 0 18 1;
+#X connect 17 0 18 2;
+#X connect 18 0 29 0;
+#X connect 21 0 15 0;
+#X connect 21 1 16 0;
+#X connect 21 2 17 0;
+#X connect 22 0 21 0;
+#X connect 23 0 0 1;
+#X connect 24 0 22 0;
+#X connect 26 0 25 0;
+#X connect 27 0 28 0;
+#X connect 28 0 25 0;
+#X connect 29 0 0 1;
+#X connect 30 0 25 0;
+#X connect 31 0 23 0;
+#X connect 32 0 33 0;
+#X connect 33 0 34 0;
+#X connect 35 0 25 0;
