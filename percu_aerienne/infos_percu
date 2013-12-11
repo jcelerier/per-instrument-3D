@@ -1,0 +1,25 @@
+Percussion aérienne
+- pas même repère entre flux de données et disposition des instrus
+- x y z et taillex, tailley, taillez
+- flags:
+- à chaque instant: coordonnées de l'insturment -1 (sphère)
+ - flags : 1er : percussif   ?
+		   deriner : continu ?
+
+			up down étouffé piston frisé
+
+Dernier triplet : couleurs
+
+
+Format des packets
+FoBController.m
+Format envoyé :
+send.c
+bird : indice de la baguette (1 ou 2)
+delta x, y, z,
+angle x, y, z : quaternion ? angles d'euler.
+
+
+cf. github FoB
+
+
