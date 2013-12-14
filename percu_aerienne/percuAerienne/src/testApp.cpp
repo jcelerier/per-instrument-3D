@@ -21,23 +21,33 @@ void testApp::setup(){
     shapes.push_back(cube);
 */
     readSetupFile();
-}
+    cam.setNearClip(0.1);
+    cam.setFarClip(500);
+    cam.setPosition(ofVec3f(0, 0, 2));
 
+    //setupCam();
+    //cam.setPosition(0,0,-1); // where are we?
+
+}
+double theta = 0;
 //--------------------------------------------------------------
 void testApp::update()
 {
     pointLight.setPosition((ofGetWidth()*.5), ofGetHeight()/2, 500);
-
+    cam.setPosition(ofVec3f(cos(theta), 0, 2 * sin(theta)));
+    cam.lookAt(ofVec3f(0,0,0),ofVec3f(0,1,0));
+    theta += 0.01;
 
     for(std::vector<Shape*>::iterator i = shapes.begin(); i != shapes.end(); ++i)
     {
-        (*i)->update();
+      //  (*i)->update();
     }
 }
 
 //--------------------------------------------------------------
 void testApp::draw()
 {
+    cam.begin();
     ofEnableDepthTest();
     // Pour avoir de l'éclairage qui fasse 3D
     ofEnableLighting();
@@ -59,21 +69,22 @@ void testApp::draw()
     ofDisableDepthTest();
 
     ofFill();
+    cam.end();
 }
+
 
 
 // Désolé c'est le code le plus dégueu que j'ai écrit de ma vie - jm
 void testApp::readSetupFile()
 {
-    // Structure pour lire les données
     struct fileData
     {
         int shape;
         int id;
         int a;
         int b1, b2;
-        double c1, c2, c3;
-        double d1, d2, d3;
+        double posx, posy, posz;
+        double sizex, sizey, sizez;
         double e1, e2, e3, e4, e5, e6, e7, e8;
         double f1, f2, f3;
     };
@@ -116,13 +127,13 @@ void testApp::readSetupFile()
         case 4:
             {
                 std::istringstream iss(line);
-                iss >> f->c1 >> f->c2 >> f->c3;
+                iss >> f->posx >> f->posy >> f->posz;
                 break;
             }
         case 5:
             {
                 std::istringstream iss(line);
-                iss >> f->d1 >> f->d2 >> f->d3;
+                iss >> f->sizex >> f->sizey >> f->sizez;
                 break;
             }
         case 6:
@@ -140,15 +151,13 @@ void testApp::readSetupFile()
                 if(f->shape == 1)
                 {
                     CubicShape* c = new CubicShape;
-                    c->position(Vector(f->c1 * 500, f->c2 * 500, f->c3 * 100));
+                    c->position(Vector(f->posx, f->posy, f->posz));
+                    c->size(Vector(f->sizex * 1, f->sizey * 1, f->sizez * 1));
                     shapes.push_back(c);
                 }
                 break;
             }
         }
-
-
-
     }
 
 }

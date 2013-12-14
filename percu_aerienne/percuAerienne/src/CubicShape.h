@@ -27,6 +27,11 @@ class CubicShape : public Shape
             m_box.setPosition(p.x, p.y, p.z);
         }
 
+        void size(Vector p)
+        {
+            m_box.set(p.x, p.y, p.z);
+        }
+
         void rotationX(double deg)
         {
             m_box.rotate(deg, 1, 0, 0);

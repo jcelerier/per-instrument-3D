@@ -14,5 +14,6 @@ public:
 
     std::vector<Shape*> shapes;
     ofLight pointLight;
+    ofCamera cam;
 
 };
