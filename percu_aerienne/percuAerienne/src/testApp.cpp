@@ -21,10 +21,12 @@ void testApp::setup(){
     shapes.push_back(cube);
 */
     readSetupFile();
-    cam.setNearClip(0.1);
-    cam.setFarClip(500);
-    cam.setPosition(ofVec3f(0, 0, 2));
+    cam.setNearClip(1);
+    cam.setFarClip(50);
+    cam.setPosition(ofVec3f(2, 0, 0));
 
+    cam.lookAt(ofVec3f(0,0,0),ofVec3f(0, 1, 0));
+    cam.rotate(-90, ofVec3f(1, 0, 0));
     //setupCam();
     //cam.setPosition(0,0,-1); // where are we?
 
@@ -34,13 +36,16 @@ double theta = 0;
 void testApp::update()
 {
     pointLight.setPosition((ofGetWidth()*.5), ofGetHeight()/2, 500);
-    cam.setPosition(ofVec3f(cos(theta), 0, 2 * sin(theta)));
-    cam.lookAt(ofVec3f(0,0,0),ofVec3f(0,1,0));
-    theta += 0.01;
+    //cam.setPosition(ofVec3f(cos(theta), 0, 2 * sin(theta)));
+
+
+
+   //cam.rotate(theta, ofVec3f(1, 0 , 0));
+    theta += 0.1;
 
     for(std::vector<Shape*>::iterator i = shapes.begin(); i != shapes.end(); ++i)
     {
-      //  (*i)->update();
+        (*i)->update();
     }
 }
 
@@ -54,7 +59,7 @@ void testApp::draw()
     pointLight.enable();
 
     // Fond noir : on dessine une grosse sphère qui englobe tout
-    ofSetColor(0);
+
     ofDrawSphere(ofGetWidth()/2, ofGetHeight()/2, ofGetWidth());
 
 

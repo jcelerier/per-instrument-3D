@@ -2,5 +2,6 @@
 <CodeBlocks_workspace_file>
 	<Workspace title="3DPrimitivesExample">
 		<Project filename="../../../libs/openFrameworksCompiled/project/linux64/libopenFrameworks.cbp" />
+		<Project filename="percuAerienne.cbp" />
 	</Workspace>
 </CodeBlocks_workspace_file>

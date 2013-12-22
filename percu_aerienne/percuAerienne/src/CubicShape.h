@@ -12,14 +12,13 @@ class CubicShape : public Shape
         void draw()
         {
             ofFill();
-            ofSetColor(255);
+            ofSetColor(40 * sin(count) + 255 - 40);
             m_box.draw();
         }
 
         void update()
         {
-            rotationX(count);
-            rotationY(count);
+            count += 0.1;
         }
 
         void position(Vector p)
@@ -49,5 +48,5 @@ class CubicShape : public Shape
 
         ofBoxPrimitive m_box;
     private:
-        double count = 0.3;
+        double count = 0.1;
 };
