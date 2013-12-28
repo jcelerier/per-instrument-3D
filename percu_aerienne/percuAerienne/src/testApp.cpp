@@ -2,10 +2,10 @@
 #include <CubicShape.h>
 #include <sstream>
 #include <string>
-
+#include <iostream>
 //--------------------------------------------------------------
-void testApp::setup(){
-
+void testApp::setup()
+{
     ofSetVerticalSync(true);
     ofBackground(20);
 
@@ -29,6 +29,8 @@ void testApp::setup(){
     cam.rotate(-90, ofVec3f(1, 0, 0));
     //setupCam();
     //cam.setPosition(0,0,-1); // where are we?
+
+    osc.startThread(true, false);
 
 }
 double theta = 0;
@@ -77,7 +79,13 @@ void testApp::draw()
     cam.end();
 }
 
+void testApp::executeAction(Action a)
+{
 
+    if(a.action == Action::Type::RECORD)
+        std::cerr << a.delta_x << std::endl;
+
+}
 
 // Désolé c'est le code le plus dégueu que j'ai écrit de ma vie - jm
 void testApp::readSetupFile()

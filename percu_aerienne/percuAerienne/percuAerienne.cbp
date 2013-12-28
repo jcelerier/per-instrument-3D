@@ -38,8 +38,11 @@
 		<Unit filename="config.make">
 			<Option virtualFolder="build config" />
 		</Unit>
+		<Unit filename="src/Action.h" />
 		<Unit filename="src/CubicShape.cpp" />
 		<Unit filename="src/CubicShape.h" />
+		<Unit filename="src/OscThread.cpp" />
+		<Unit filename="src/OscThread.h" />
 		<Unit filename="src/Shape.cpp" />
 		<Unit filename="src/Shape.h" />
 		<Unit filename="src/Vector.h" />
