@@ -63,6 +63,7 @@ escapeinside={\%*}{*)}
 \geometry{margin=2cm}
 \geometry{headheight=15pt}
 \usepackage{fancyhdr}
+\usepackage{fancyref}
 \usepackage[xindy,toc]{glossaries}
 \usepackage{natbib}
 \usepackage{fancyvrb}
@@ -125,8 +126,9 @@ escapeinside={\%*}{*)}
 
 \include{introduction}
 
-\chapter{Three-dimensional displays}
 \input{relationship} % Relation avec instrus 3D
+\chapter{Three-dimensional displays}
+\label{chap:3ddisp}
 \input{classification} % Explication des classifications
 \chapter{Presentation of 3D musical instruments}
 \input{musicalinstr}
