@@ -2,7 +2,7 @@
 
 CubicShape::CubicShape()
 {
-    float width     = ofGetWidth();
+    //float width     = ofGetWidth();
     m_box.set(15);
 }
 

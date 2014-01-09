@@ -82,9 +82,19 @@ void testApp::draw()
 void testApp::executeAction(Action a)
 {
 
-    if(a.action == Action::Type::RECORD)
-        std::cerr << a.delta_x << std::endl;
+    if(a.action == Action::Type::ENTER)
+    {
+        std::cerr << "\n\nInstru: " << a.instrument << std::endl;
+        for(Shape* s : shapes)
+        {
+            std::cerr << s->id << " ";
 
+            if(s->id == a.instrument)
+            {
+                s->enter();
+            }
+        }
+    }
 }
 
 // Désolé c'est le code le plus dégueu que j'ai écrit de ma vie - jm
@@ -123,6 +133,7 @@ void testApp::readSetupFile()
                 f = new fileData;
            //     if(line.substr(0,2) == "Box")
                     f->shape = 1;
+                    f->id = std::stoi(line.substr(line.size() - 1, 1));
                 break;
             }
         case 2:
@@ -164,6 +175,7 @@ void testApp::readSetupFile()
                 if(f->shape == 1)
                 {
                     CubicShape* c = new CubicShape;
+                    c->id = f->id;
                     c->position(Vector(f->posx, f->posy, f->posz));
                     c->size(Vector(f->sizex * 1, f->sizey * 1, f->sizez * 1));
                     shapes.push_back(c);
