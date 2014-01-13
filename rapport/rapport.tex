@@ -1,130 +1,65 @@
-\documentclass[a4paper,11pt,oneside]{report}
-
-\usepackage{geometry}
-\usepackage[utf8]{inputenc}
+\documentclass{report}
 \usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage[T1]{fontenc}
 \usepackage{relsize}
-\usepackage{color}
-
+\usepackage{lettrine}
+\usepackage{fullpage}
+\usepackage{multicol}
 \usepackage{hyperref}
-
-\definecolor{dkgreen}{rgb}{0,0.6,0}
-\definecolor{gray}{rgb}{0.5,0.5,0.5}
-\definecolor{mauve}{rgb}{0.58,0,0.82}
-
-\usepackage{listings}
-\usepackage{float}
-\usepackage{kpfonts}
-\usepackage{verbatimbox}
-\usepackage{datetime}
-
-% more figures per page
-\renewcommand\floatpagefraction{.9}
-\renewcommand\topfraction{.9}
-\renewcommand\bottomfraction{.9}
-\renewcommand\textfraction{.1}   
-\setcounter{totalnumber}{50}
-\setcounter{topnumber}{50}
-\setcounter{bottomnumber}{50}
-
 \usepackage{graphicx}
-%% \newcommand{\foofoo}{\hspace{-2.3pt}$\bullet$ \hspace{5pt}}
-
-
-\lstset{
-language=C++,
-basicstyle=\footnotesize,
-numbers=left,
-numberstyle=\footnotesize,
-stepnumber=1,
-numbersep=5pt,
-backgroundcolor=\color{white},
-showspaces=false,
-showstringspaces=false,
-showtabs=false,
-frame=single,
-tabsize=2,
-captionpos=b,
-breaklines=true,
-breakatwhitespace=false,
-escapeinside={\%*}{*)}
-}
-
-
-\lstset{
-  literate={ù}{{\`u}}1
-           {é}{{\'e}}1
-           {è}{{\'e}}1
-           {à}{{\`a}}1
-}
-
-
-\geometry{margin=2cm}
-\geometry{headheight=15pt}
-\usepackage{fancyhdr}
-\usepackage{fancyref}
+\usepackage{color}
+\usepackage[T1]{fontenc}
+\usepackage{relsize}
 \usepackage[xindy,toc]{glossaries}
-\usepackage{natbib}
-\usepackage{fancyvrb}
-\usepackage{float}
-\usepackage{algorithm2e}
-\usepackage{CJKutf8}
-\usepackage{caption}
-\usepackage[footnote,smaller]{acronym}
-\usepackage[perpage]{footmisc}
-\usepackage[]{titlesec}
-\makeatletter
-\def\ttl@mkchap@i#1#2#3#4#5#6#7{%
-    \ttl@assign\@tempskipa#3\relax\beforetitleunit
-    \vspace{\@tempskipa}
-    \global\@afterindenttrue
-    \ifcase#5 \global\@afterindentfalse\fi
-    \ttl@assign\@tempskipb#4\relax\aftertitleunit
-    \ttl@topmode{\@tempskipb}{%
-        \ttl@select{#6}{#1}{#2}{#7}}%
-    \ttl@finmarks  % Outside the box!
-    \@ifundefined{ttlp@#6}{}{\ttlp@write{#6}}}
-\makeatother
+\definecolor{gris25}{gray}{0.75}
+\usepackage{hyperref}
+\hypersetup{backref=true,colorlinks=true, urlcolor= blue, linkcolor= blue, pdfsubject={Mac OS X}}
+\setlength\leftmargini{1.5em} % premier niveau
+\setlength\leftmarginii{2.2em} % 2ème niveau
 
-\makeglossaries
 
-\pagestyle{fancy}
 
-\renewcommand*{\acsfont}[1]{\brand{#1}}
-\newcommand{\brand}[1]{\textsc{\textbf{#1}}}
+\title{
+\begin{figure} [h!]
+\begin{center}
+\includegraphics[width=0.4\textwidth]{LogoUniversiteBX1.jpg}
+\end{center}	
+\end{figure}
+\textbf{\large{Université of Bordeaux \\
+		 2013-2014}			 	  		
+\paragraph{}
+\large{PER}
+\paragraph{}
+\Huge{\textcolor{red}{Three-dimensional musical instrument}}}
+\newline
+\newline
+ \large{\textbf{\textit{Supervisor:}} Aurélie \textsc{Bugeau}}\\
+ \large{\textbf{\textit{Clients:}} Myriam \textsc{Desainte-Catherine}, Joseph
+ \textsc{Larralde}, and Florent \textsc{Berthaut}}}
 
-\let\oldpar\paragraph
-\renewcommand{\paragraph}[1]{\oldpar{#1}\mbox{}\\}
 
-\DeclareMathOperator{\power}{power}
-\DeclareMathOperator{\phase}{phase}
-\DeclareMathOperator{\recompute}{recompute}
+\author{\fcolorbox{gris25} {gris25} {\small{Mohamed \textsc{Bourara}, Jean \textsc{Bui-Quang}, Omar \textsc{Ourhi}, Jean-Michaël \textsc{Celerier}, Marie \textsc{Immacula Omiscar} and Damien \textsc{Clergeaud}}}}
 
-\rhead{3D Musical instrument}
+\date{\fcolorbox{gris25} {gris25} {\today}}
+
+
+
+
+%\rhead{3D Musical instrument}
 
 \begin{document}
-\selectlanguage{english}
-\begin{titlepage}
-  \begin{center}
+\maketitle
+\vspace{5cm}
 
-    \textsc{\LARGE Three-dimensional musical instrument}\\[1cm]
-    
-  \end{center}
-  
-  \vspace*{\stretch{2}}
-  \begin{flushbottom}
-   \begin{flushleft}
-    \underline{Students} : Mohamed \textsc{Bourara}, Jean \textsc{Bui-Quang}, Jean-Michaël \textsc{Celerier}, Damien \textsc{Clergeaud}, Marie \textsc{Immacula Omiscar}, Omar \textsc{Ourhi} - \today \\
-   \end{flushleft}
-  \end{flushbottom}
-\end{titlepage}
-\clearpage
+
 \tableofcontents
 \listoffigures
 \include{glossary}
-
 \include{introduction}
+
 
 \input{relationship} % Relation avec instrus 3D
 \chapter{Three-dimensional displays}
@@ -138,9 +73,29 @@ escapeinside={\%*}{*)}
 \input{demandeclient}
 \input{implementation}
 
+
 \include{conclusion}
 
+
 \printglossaries
-\bibliographystyle{apalike}
+\begin{itemize}
+
+\item L'article \cite{holliman2011three} 
+\item L'article \cite{ pimenta2012comprehensive} 
+\item L'article \cite{mehrabi2013making} 
+
+\item L'article \cite{kim2012frontal} 
+
+\item L'article \cite{cadoz1999musique} 
+
+\item L'article \cite{berthaut2010piivert}
+\item Le livre \cite{okoshi1976three}
+\item L'article \cite{rodet2005study} 
+\item L'article \cite{plumage2007} 
+\item L'article \cite{maki2005} 
+\item L'article \cite{wozniewski2006spatial}
+
+\bibliographystyle{alpha}
 \bibliography{instru3d}
+\end{itemize}
 \end{document}
