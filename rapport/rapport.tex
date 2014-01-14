@@ -1,6 +1,8 @@
-\documentclass{report}
+\documentclass[a4paper,11pt,oneside]{report}
+\usepackage{geometry}
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage{hyperref}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage[T1]{fontenc}
@@ -13,14 +15,39 @@
 \usepackage{color}
 \usepackage[T1]{fontenc}
 \usepackage{relsize}
+\usepackage{kpfonts}
+\usepackage{caption}
+\usepackage[footnote,smaller]{acronym}
+\usepackage[perpage]{footmisc}
+\usepackage[]{titlesec}
 \usepackage[xindy,toc]{glossaries}
+\usepackage{natbib}
+\usepackage{fancyvrb}
+\usepackage{float}
 \definecolor{gris25}{gray}{0.75}
-\usepackage{hyperref}
-\hypersetup{backref=true,colorlinks=true, urlcolor= blue, linkcolor= blue, pdfsubject={Mac OS X}}
+\hypersetup{colorlinks=true, urlcolor= blue, linkcolor= blue}
+
+
+% % % Pour avoir plus de figures
+\renewcommand\floatpagefraction{.9}
+\renewcommand\topfraction{.9}
+\renewcommand\bottomfraction{.9}
+\renewcommand\textfraction{.1}   
+\setcounter{totalnumber}{50}
+\setcounter{topnumber}{50}
+\setcounter{bottomnumber}{50}
+
+
+% % % Géométrie de la page
 \setlength\leftmargini{1.5em} % premier niveau
 \setlength\leftmarginii{2.2em} % 2ème niveau
 
+% Changements de commandes utiles
+\renewcommand*{\acsfont}[1]{\brand{#1}}
+\newcommand{\brand}[1]{\textsc{\textbf{#1}}}
 
+\let\oldpar\paragraph
+\renewcommand{\paragraph}[1]{\oldpar{#1}\mbox{}\\}
 
 \title{
 \begin{figure} [h!]
@@ -31,7 +58,7 @@
 \textbf{\large{Université of Bordeaux \\
 		 2013-2014}			 	  		
 \paragraph{}
-\large{PER}
+\LARGE{Projet d'Étude et de Recherche}
 \paragraph{}
 \Huge{\textcolor{red}{Three-dimensional musical instrument}}}
 \newline
@@ -45,24 +72,18 @@
 
 \date{\fcolorbox{gris25} {gris25} {\today}}
 
-
-
-
-%\rhead{3D Musical instrument}
-
 \acrodef{LABRI}{LAboratoire Bordelais de Recherche en Informatique}
 \acrodef{SCRIME}{Studio de Création et de Recherche en Informatique et Musique Électroacoustique}
 
+\makeglossaries
 \begin{document}
 \maketitle
 \vspace{5cm}
-
 
 \tableofcontents
 \listoffigures
 \include{glossary}
 \include{introduction}
-
 
 \input{relationship} % Relation avec instrus 3D
 \chapter{Three-dimensional displays}
@@ -76,16 +97,15 @@
 \input{demandeclient}
 \input{implementation}
 
-
 \include{conclusion}
-
 
 \printglossaries
 
+\newpage
 \begin{itemize}
 
 \item L'article \cite{holliman2011three} 
-\item L'article \cite{ pimenta2012comprehensive} 
+\item L'article \cite{pimenta2012comprehensive} 
 \item L'article \cite{mehrabi2013making} 
 
 \item L'article \cite{kim2012frontal} 
