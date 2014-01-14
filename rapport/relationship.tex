@@ -1,34 +1,35 @@
 \chapter{3D musical instruments and 3D displays for performance}
-\section{Présentation du sujet}
-\paragraph{}
-Au Scrime et au Labri, des instruments de musique 3D ont été développé dans le cadre de recherche dans le monde de la réalité virtuelle interactif et de la musique informatique. 
-\\
-Le DRILE \cite{berthaut2010drile} est une instrument de musique 3D qui permet de manipuler la structure d'une musique basée sur le principe du \textit{live looping} dans une scène de réalité virtuelle immersive.
-\\
-La percussion aérienne est un instrument de musique 3D qui permet de générer du son à l'aide de capteurs situés aux bouts de baguettes de batteries. Des formes géométriques 3D virtuelles sont situées autours du musiciens. En fonction de la position des capteurs, de l'orientation, et de la vitesse, des sons sont générés.
+\section{Subject presentation}
+\paragraph{3D Musical instruments}
+At the \ac{SCRIME} and \ac{LABRI}, three-dimensional musical instruments have been implemented within the context of research in interactive virtual reality and music computing. 
 
-\paragraph{}
-Dans ce cadre là, il nous a été demandé de mettre en place un prototype de dispositif de rendu 3D pour la performance musicale. Il est nécessaire de tenir compte des contraintes liées à la performance, ainsi que les contraintes liées aux instruments.
-\\
-Les contraintes de la performance sont:
+The \brand{Drile} \cite{berthaut2010drile} is a 3D musical instrument which allows manipulation of the structure of a song using \gls{livelooping}, in an immersive virtual reality scene.
+
+The \brand{Aerial Percussion} is a 3D musical instrument which generates sounds using the position in space of sensors which are put at the end of drumsticks. Virtual 3D shapes like cubes, cylinders, are positionned around the instrument and the musician. According to the position, the orientation, and the speed of the sensors, sounds are generated.
+
+\paragraph{Required work}
+We were asked to implement a prototype of a 3D render and display device, for musical performance.
+It is necessary to take into account the constraints inherent to a musical performance environment, as well as the constraints of the instruments.
+
+Here are some constraints for the performance : 
 \begin{itemize}
-\item Le musicien doit être face aux spectateurs
-\item Le musicien doit avoir les informations nécessaires à l'utilisation de son instrument, ainsi que les spectateurs doivent avoir une représentation de l'instrument pour comprendre les actions du musicien
+\item The musician has to be in front of the audience.
+\item The musician requires visual cues inherent to the utilisation of the instrument, and the audience must see the instrument to understand the gestures and actions of the musician.
 \end{itemize}
 
-\paragraph{}
-Pour ce faire, la description d'un instrument de musique 3D nécessite d'être préciser.
+To enact this implementation, a precise explanation of the nature of the 3D musical instruments is required.
+
+\paragraph{Plan for this section}
+We will first make a short presentation of 3D musical instruments, present and will then define the concepts of immersivity and interactivity.
 
 \newpage
-\section{What is an 3D musical instrument?}
+\section{What is a 3D musical instrument?}
+{\LARGE{TODO a reformuler : bof le wikipédia}}\\
+A 3D musical instrument, or an immersive virtual musical instrument, represents sound processes and their parameters as 3D entities of a virtual reality so that they can be perceived not only through auditory feedback but also visually in 3D and possibly through touch as well as haptic feedback, using 3D interface metaphors consisting of interaction techniques such as navigation, selection and manipulation.
 
-\paragraph{}
-
-A 3D musical instrument, or an immersive virtual musical instrument, represents sound processes and their parameters as 3D entities of a virtual reality so that they can be perceived not only through auditory feedback but also visually in 3D and possibly through tactile as well as haptic feedback, using 3D interface metaphors consisting of interaction techniques such as navigation, selection and manipulation.
-
-\paragraph{}
-
-Par exemple, nous pouvons voir sur la photographie \ref{drile} que l'utilisateur est équipé de lunette et de manette avec capteurs à retour haptiques (Piivert \cite{berthaut2010piivert}). L'utilisateur manipule des forme 3D dans un environnement 3D pour influer sur la génération de la musique. L'instrument en question est le DRILE. Nous vous donnerons plus d'informations sur cet instrument dans la suite du rapport.
+\paragraph{Example for the Drile}
+For instance, the picture \ref{drile} shows a musician with special glasses, as well as joysticks with force-feedback haptic sensors (Piivert \cite{berthaut2010piivert}). 
+The user handles 3D shapes in a 3D environement to influence the music generation. A specific part of this report will be dedicated to a precise study of the \brand{Drile}.
 
 \begin{figure}[t]
 \centering
@@ -37,18 +38,19 @@ Par exemple, nous pouvons voir sur la photographie \ref{drile} que l'utilisateur
 \label{drile}
 \end{figure}
 
-\paragraph{}
-Maintenant qu'un instrument de musique 3D a été défini, le concept d'immersion et d'interactivité doivent être définis.
 \newpage
 \section{Immersion}
+\paragraph{Definition}
+Immersion is a psychologic state where the subject stops about taking care of its own physical state.
+The immersion is quite important in virtual reality. For instance, for the Aerial Percussion, it would come down to the state the performer is when he stops thinking consciously of the disposition of the shapes he interacts with. The musician will then be immersed in the virtual 3D environment which consists in the shapes disposition.
 
 \paragraph{}
-L'immersion est un état psychologique où le sujet cesse de se rendre comtpe de son propre état physique. Le concept d'immersion est très important en réalité virtuelle. Par exemple pour la percussion aérienne cela reviendrait à l'état atteind par le musicien lorsque celui ci ne réfléchit plus consciemment à la disposition des formes avec lesquelles il interragit. Le musicien sera alors immergé dans cette scène 3D que constitue la disposition des formes de la percussion aérienne.
+Hence, to immerse an user, multiple parameters are accessible to the 3D instrument designer. 
+They are mostly linked to the senses of the human body. In our project, we will mainly focus on vision, and more precisely on 3D display devices.
 
 \paragraph{}
-Ainsi pour immerger un utilisateur, il est possible de jouer sur plusieurs paramètres. Ceux ci sont très liés aux sens du corps humain. Dans le cadre de notre projet nous nous intéresserons surtout à la vision, et tout particulièrement aux dispositifs de rendu de la 3D.
-
-\paragraph{}
+Interactivity is an important aspect of the immersion capacities of a musical system.
+The user is more likely to get an immersive feeling in a virtual world, if the world instantly reacts to his actions
 L'interactivité a une part importante dans l'aspect immersif d'un système. L'utilisateur a d'autant plus le sentiment d'immersion dans un monde virtuelle si celui ci réagit instantanément à ses actions. Ceci nous amène a définir les contrôles d'un instrument de musique 3D et l'importance de l'interactivité.
 
 \section{Control}
