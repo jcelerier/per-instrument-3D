@@ -1,0 +1,180 @@
+\ifglsentryexists{display}{}%
+{%
+\gls@defglossaryentry{display}%
+{%
+name={display},%
+sort={display},%
+type={main},%
+first={display},%
+firstplural={displays},%
+text={display},%
+plural={displays},%
+description={a visual output device for the presentation of images \cite {pimenta2012comprehensive}.},%
+descriptionplural={a visual output device for the presentation of images \cite {pimenta2012comprehensive}.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{occlusion}{}%
+{%
+\gls@defglossaryentry{occlusion}%
+{%
+name={occlusion},%
+sort={occlusion},%
+type={main},%
+first={occlusion},%
+firstplural={occlusions},%
+text={occlusion},%
+plural={occlusions},%
+description={when an object is hidden by another.},%
+descriptionplural={when an object is hidden by another.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{linpersp}{}%
+{%
+\gls@defglossaryentry{linpersp}%
+{%
+name={linear perspective},%
+sort={linear perspective},%
+type={main},%
+first={linear perspective},%
+firstplural={linear perspectives},%
+text={linear perspective},%
+plural={linear perspectives},%
+description={the way our visual perception of objects are affected by their position and dimension},%
+descriptionplural={the way our visual perception of objects are affected by their position and dimension},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{atmpersp}{}%
+{%
+\gls@defglossaryentry{atmpersp}%
+{%
+name={atmospheric perspective},%
+sort={atmospheric perspective},%
+type={main},%
+first={atmospheric perspective},%
+firstplural={atmospheric perspectives},%
+text={atmospheric perspective},%
+plural={atmospheric perspectives},%
+description={the impression of depth given by the refraction of the air. For instance, we can say that mountains are far because they appear more blue than close mountains.},%
+descriptionplural={the impression of depth given by the refraction of the air. For instance, we can say that mountains are far because they appear more blue than close mountains.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{shading}{}%
+{%
+\gls@defglossaryentry{shading}%
+{%
+name={shading},%
+sort={shading},%
+type={main},%
+first={shading},%
+firstplural={shadings},%
+text={shading},%
+plural={shadings},%
+description={the gradient in color and shades that would appear due to the shape of objects and color, intensity, and direction of light},%
+descriptionplural={the gradient in color and shades that would appear due to the shape of objects and color, intensity, and direction of light},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{livelooping}{}%
+{%
+\gls@defglossaryentry{livelooping}%
+{%
+name={live looping},%
+sort={live looping},%
+type={main},%
+first={live looping},%
+firstplural={live loopings},%
+text={live looping},%
+plural={live loopings},%
+description={A REMPLIR},%
+descriptionplural={A REMPLIR},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
