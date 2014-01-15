@@ -43,13 +43,10 @@ The first classification was in \cite{okoshi1976three}, and it was really based 
 
 However, it did not hold well against the emergence of new techniques, like volumetric displays for instance.
 
-<<<<<<< HEAD
 Other classifications %\cite{ref nécessaire} 
 would limit themselves to only a subset of 3D displays.
-=======
 Other classifications \cite{refnécessaire} would limit themselves to only a subset of 3D displays.
 
->>>>>>> 79dd2c9a3ce1222897afafb9416e3ffde83706c7
 
 Hence the need for a classification that would not base itself on the different technologies, but on criterions that would be inherent to the idea of display and human vision.
 
@@ -62,9 +59,73 @@ In \cite{pimenta2012comprehensive}, the main idea is to classify the displays ac
 \end{itemize}
 
 \section{In-depth presentation of some 3D display methods}
-\subsubsection{Pepper's Ghost}
-\subsubsection{Glasses}
-\subsubsection{Head-mounted displays}
-\subsubsection{Hologram}
-\subsubsection{Autostereoscopic screen}
+\subsection{Horizontal paralax multiview 3D diplays} 
+There are two main types of technology for Multiview parallax displays: Or by applying a parallax barrier,or by application of a lenticular panel.
+A parallax barrier is a mask of parallel black stripes that reveals the different parts of the underlying image depending on the direction of observation.\\ The same effect can be obtained with the lenticular sheets, which are linear networks of narrow cylindrical lenses. Both techniques are used to show a unique view of each position in the viewing area.Thus, a viewer feels the motion parallax and binocular stereo without the use of special glasses. 
+\subsubsection{Lenticular Displays}
+The application of a lenticular panel to deflect the rays from the pixels of the screen in order to reproduce a stereoscopic display giving the late images giving an impression of relief (3D).\\ Lenticular panel is composed of a regular grid of small spherical lenses.Each lens covers an area of several pixels of the flat screen and will divert the direction of the light emitted by the pixels covered.
+Thus the principle according to the imaging angle of view we see the red image or the blue image. An observer looking at a lens 3D screen does not see the same screen pixel flat between his left eye and his right eye, although both eyes set the same lens.\\
+On the figure below, the left eye sees a lens emitting red color (from a red pixel) while the right eye sees simultaneously the same lens blue.
+With horizontal lenses, projecting changing images, the image is seen depending on the viewing angle of the lens.
+
+
+\begin{figure}[h!]
+\begin{center}
+\begin{minipage}{1\linewidth}
+\centering\includegraphics[width=4cm,height=4cm]{image/lentuc.jpg}
+\caption{A lens array is applied to a flat screen.}
+\end{minipage}
+\end{center}
+\end{figure}
+\subsubsection{Parallax Barrier Displays}
+
+Each cache is precisely placed so that the observer, itself placed at the correct distance from the screen, with each eye sees the image that corresponds to it. The images are divided into columns of a pixel wide. Thanks to the cache and inserting columns of each image, an image is sent to the right eye and one in the left eye and the brain will add recreating the relief effect.
+In comparison with the lens array, we can see each spherical lens replaced by an opaque surface and a small hole in its center. Therefore, as in the case of the lens array, an observer looking at a small hole in the 3D screen does not see the same screen pixel flat between his left eye and his right eye: this is because the barrier parallax is not contiguous to the flat screen, a distance of a few millimeters between the two panels (more technical details are given in Part II).\\
+On the figure below, the left eye sees through a hole in a red color (from a red pixel) while the right eye sees a blue simultaneously through the same hole.
+
+\begin{figure}[h!]
+\begin{center}
+\begin{minipage}{1\linewidth}
+\centering\includegraphics[width=4cm,height=4cm]{image/parallax.jpg}
+\caption{A parallax barrier is applied to a flat screen.}
+\end{minipage}
+\end{center}
+\end{figure}
+
+This technique provides a terrain vision without wearing glasses.\\
+\textbf{The disadvantages:}
+\begin{itemize}
+
+\item It must be placed precisely over the screen, if the observer is not the precise position relative to the screen he will see superimposed images and is unreadable.
+\item We are not machines and we move without us realizing what is not compatible with the system.
+\item It does not allow visualization of the stereoscopic image to multiple viewers at the same time.
+\end{itemize}
+\subsubsection{Multi-Projector Displays:}
+
+This technique consists of positioning in a circle several projectors displaying all an angle different image after these images are projected onto a special screen, double lenticular lens example (spherical lens), the easiest way to project these images on a cylinder fog.
+
+\begin{figure}[h!]
+\begin{center}
+\begin{minipage}{1\linewidth}
+\centering\includegraphics[width=4cm,height=4cm]{image/lapin.jpg}
+\caption{}
+\end{minipage}
+\end{center}
+\end{figure}
+
+It is possible to turn around the rabbit in 3 dimensions and view it from all angles.\\
+\textbf{The advantage:} 
+\begin{itemize}
+
+\item One advantage of this technique, the size of the 3D image may be much larger, there is currently no limit.
+\end{itemize}
+\textbf{The disadvantages:}
+\begin{itemize}
+
+\item  Multiple projectors are needed (for projector).
+\item Headlights must be precisely aligned.
+
+\end{itemize}
+
+
 % En rajouter à volonté
