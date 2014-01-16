@@ -1,11 +1,11 @@
 \section{Definition of a 3D display}
 While it is commonplace to hear about 3D display in television or smartphone advertisement nowadays, the distinction between 2D and 3D might be more difficult to settle.
 \subsection{The problem}
-If we take the simple definition : a 3D display is a display that can show 3D images, it is really ambiguous, because of what is supposed to be "3D". For instance, for years, video games have been advertising 3D engines and spectacular 3D graphics, even without what we now call 3D displays.
+If we take the simple definition : a 3D display is a display that can show 3D images, it is really ambiguous, because of what is supposed to be "3D". For instance, for years, video games have been advertising 3D engines and spectacular 3D graphics, even without the depth provided by what is now called 3D displays or 3D movies in cinema.
 
-Hence, we have to qualify what is 3D and what is not.
+Hence, we have to qualify what is 3D and what it is not.
 \subsection{Parameters}
-In the litterature (\cite{okoshi1976three}, \cite{pimenta2012comprehensive}), the main idea is to relate to the human brain and body capabilities. For instance, a big part of the "3D" feel is due to the fact of having two eyes that looks in the same direction, but from a slightly different angle, but it is not all.
+In the litterature (\cite{okoshi1976three}, \cite{pimenta2012comprehensive}), the main idea is to relate to the human brain and body capabilities to define 3D vision. For instance, a big part of the "3D" feel is due to the fact of having two eyes that looks in the same direction, but from a slightly different angle, but it is not the only parameter.
 
 The visual cues of 3D vision are separated in two families:  
 \begin{itemize}
@@ -23,7 +23,7 @@ Psychological cues \\
 \Gls{occlusion} \\
 \Gls{linpersp} \\
 \Gls{atmpersp} \\
-Shading \\
+\Gls{shading} \\
 \hline
 \end{tabular}
 \caption{Psychological cues}
@@ -43,13 +43,8 @@ The first classification was in \cite{okoshi1976three}, and it was really based 
 
 However, it did not hold well against the emergence of new techniques, like volumetric displays for instance.
 
-
 Other classifications %\cite{ref nécessaire} 
 would limit themselves to only a subset of 3D displays.
-
-Other classifications \cite{refnécessaire} would limit themselves to only a subset of 3D displays.
-
-
 
 Hence the need for a classification that would not base itself on the different technologies, but on criterions that would be inherent to the idea of display and human vision.
 
@@ -62,15 +57,19 @@ In \cite{pimenta2012comprehensive}, the main idea is to classify the displays ac
 \end{itemize}
 
 \section{In-depth presentation of some 3D display methods}
-This section describes the different technologies used by manufacturers of 3D displays, and also has some 3D visualization systems. But first we will define what is stereoscopic and auto stereoscopic.\\
-\textbf{The stereoscopic} is the set of techniques used to reproduce a depth perception from two planar images.\\
-\textbf{The autostereoscopic} is a type of image representation in relief or stereoscopic which requires no additional device to render the dimensional effect. Thus, an auto-stereoscopic display without the relief effect, for example, wearing special glasses associated need. For the general public, we are talking in general 3D without glasses.
+This section describes the different technologies used by manufacturers of 3D displays, and also explains some 3D visualization systems in detail. But first we will define what are stereoscopic and auto-stereoscopic displays. \\
+\textbf{Stereoscopy} is the set of techniques used to reproduce a depth perception from two planar images.\\
+\textbf{Autostereoscopy} is a method of image representation, either in three-dimension or stereoscopic, which requires no additional device to render the 3D effect. 
 
-\subsection{Two-view 3D displays:}
-Since a decade, a new generation of screens appeared: 3D screens. The main feature of these screens, distinguishing them from conventional screens, is their ability to display stereoscopic images independently, and allow diffusion of stereo images, that is the diffusion of a different point of view for each eye of the observer.
-\subsubsection{Wavelength selective displays:}
-To view in 3D, it is necessary to provide our brain two images of the same scene taken from two different points of view. This is the principle of stereoscopy. The distance between the two points of view allows used to calculate the depth of field to achieve the relief.\\
-So that each eye receives the image intended for it there are different methods. Some of you might already be using colored red and cyan glasses to see a 3D image: these glasses "anaglyphic".
+\subsection{Two-view 3D displays}
+Since a decade, a new generation of screens appeared: 3D screens. The main feature of these screens, which distinguishes them from conventional screens, is their ability to display stereoscopic images, : each eye of the observer will receive a different point of view.
+There are multiple technologies that are able to power such screens; we will explain some. But an exhaustive list is present in \cite{mehrabi2013making}.
+
+\subsubsection{Wavelength selective displays}
+To view in 3D, it is necessary to provide our brain two images of the same scene taken from two different points of view. This is the principle of stereoscopy. The distance between the two points of view is used to compute the depth of field to achieve the 3D effect.\\
+Different methods exist so that each eye receives the intended image. 
+
+The most famous are the anaglyphic glasses (red and cyan glasses). However, the result is of poor quality.
 
 \begin{figure}[h!]
 \begin{center}
@@ -81,14 +80,20 @@ So that each eye receives the image intended for it there are different methods.
 \end{center}
 \end{figure}
 
-In this case, images are filtered by color. The two images are superimposed and glasses incorporate a color filter for each eye cannot see the image intended for it.\\
-Special glasses so that each eye can see both the left image and right image, creating the stereoscopic depth effect.
+In this case, images are filtered by color. The two images are superimposed and the glasses incorporate a color filter. The eyes can only see the image intended for them, so this can be used to create a stereoscopic effect. 
 
-\subsubsection{Time-sequential two-view displays:}
+This is a passive method.
 
-1-Time-sequential polarization:\\
-This technique uses polarized glasses. The right glass is polarized in one direction while the left lens is polarized in the other direction. The image displayed on the screen is actually composed of two raster images. Every other line is for an eye while the other line is on two for the other eye. For each line of the display, the light emitted is polarized inversely to the preceding line. Thus, the glasses only let each eye a second line.
-\clearpage
+\subsubsection{Time-sequential two-view displays}
+The idea is that the images are shown one after the other, but it has two requirements : 
+\begin{itemize}
+\item The switching between images must be fast : a refresh rate of 48 Hz is theoretically minimal for a 24 fps movie, however research \cite{holliman2011three} shown that 58 Hz is a practical minimum.
+\item Each eye must see only the images directed to it. There are multiple technologies to achieve this, passive and active.
+\end{itemize}
+
+\paragraph{Passive method}
+This technique uses polarized glasses. The right lens is polarized in one direction while the left lens is polarized in the other direction. 
+
 \begin{figure}[h!]
 \begin{center}
 \begin{minipage}{1\linewidth}
@@ -98,20 +103,27 @@ This technique uses polarized glasses. The right glass is polarized in one direc
 \end{center}
 \end{figure}
 
-In this system each displayed image on the screen is made up of both.Image for the right eye and the image for the left eye.
-\subsubsection{Time-parallel two-view displays:}
-This is the opposite of (Time-Sequential Two-View Displays) displays in parallel time have seen simultaneously by both eyes.
+This is not an expensive method, however the image is often less bright. It is generally used in movie theaters.
 
-1-Stereoscopic time-parallel displays:\\
-Displays using glasses and generate two simultaneous images include double projection systems widely available that combine two projectors and polarizing filters matched with appropriate glasses.\\
-\textbf{The advantages:}
+\paragraph{Active method}
+This technique uses active glasses, with LCD shutters that needs to be synchronized with the screen refresh rate : one of the glass goes black while the other allow the light to pass, which allows the eyes to receive only the wanted image at the wanted time.
+
+This method is more expensive, but reviews often said it offers a better experience.
+
+\subsubsection{Time-parallel two-view displays}
+This is the opposite of time-sequential two-view displays. Both eyes receive a stream of images at the same time.
+
+\paragraph{Simple stereoscopy}
+These displays use glasses and generate two simultaneous images. They include double projection systems that combine two projectors and polarizing filters matched with appropriate glasses.\\
+
+\textbf{Advantages}
 \begin{itemize}
-\item The glasses are easy to build, widely available from suppliers.
-\item The quality-of the polarizer and the nature of the polarization retention screens are important.
+\item The glasses are easy to build, and therefore widely available from suppliers.
+\item The quality of the polarizer and the nature of the polarization retention screens are important.
 \end{itemize}
 
 %\newline
-2-Auto stereoscopic time-parallel displays:\\
+\paragraph{Auto-stereoscopy}
 This technique provides a terrain vision without wearing glasses adjusted, the observer is placed at the correct distance from the screen, with each eye sees the image that corresponds to it (an image will be sent to the right eye and another to the left eye and the brain will add recreating the effect of relief).\\
 \textbf{The disadvantages:}
 \begin{itemize}
