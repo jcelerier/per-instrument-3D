@@ -23,7 +23,7 @@ class CubicShape : public Shape
             }
             else
             {
-                ofSetColor(50);
+                ofSetColor(100);
             }
 
             m_box.draw();

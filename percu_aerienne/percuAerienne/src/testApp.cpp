@@ -6,7 +6,7 @@
 //--------------------------------------------------------------
 void testApp::setup()
 {
-    ofSetWindowShape(1920, 600);
+    ofSetWindowShape(3840, 900);
     ofSetVerticalSync(true);
     ofBackground(0);
 
@@ -18,23 +18,23 @@ void testApp::setup()
     initDrumsticks();
 
     // Caméra
-    camL.setNearClip(1);
+    camL.setNearClip(0.1);
     camL.setFarClip(50);
-    camL.setPosition(ofVec3f(2, 0.01, -0.01));
+    camL.setPosition(ofVec3f(1.6, 0.01, -0.01));
     camL.lookAt(ofVec3f(0,0,0),ofVec3f(0, 1, 0));
     camL.rotate(-90, ofVec3f(1, 0, 0));
 
     // Caméra
-    camR.setNearClip(1);
+    camR.setNearClip(0.1);
     camR.setFarClip(50);
-    camR.setPosition(ofVec3f(2, -0.01, 0.01));
+    camR.setPosition(ofVec3f(1.6, -0.01, 0.01));
     camR.lookAt(ofVec3f(0,0,0),ofVec3f(0, 1, 0));
     camR.rotate(-90, ofVec3f(1, 0, 0));
 
     osc.startThread(true, false);
 
-    left.allocate(1920, 600, GL_RGBA);
-    right.allocate(1920, 600, GL_RGBA);
+    left.allocate(1920, 900, GL_RGBA);
+    right.allocate(1920, 900, GL_RGBA);
 }
 
 void testApp::initDrumsticks()
@@ -116,7 +116,7 @@ void testApp::draw()
     right.end();
 
     left.draw(0,0);
-    right.draw(800, 0);
+    right.draw(1920, 0);
 }
 
 void testApp::executeAction(Action a)
