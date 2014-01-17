@@ -17,7 +17,7 @@ class CubicShape : public Shape
                 ofSetColor(250);
                 if(inside_enable)
                 {
-                     count = 10;
+                     count = 5;
                      inside_enable = false;
                 }
             }

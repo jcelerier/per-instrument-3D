@@ -1,4 +1,4 @@
-#N canvas 19 41 721 600 10;
+#N canvas 17 100 721 600 10;
 #X obj 229 253 mtr;
 #X msg 47 148 stop \, record;
 #X msg 47 169 stop;

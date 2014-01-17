@@ -45,6 +45,8 @@
 		<Unit filename="src/OscThread.h" />
 		<Unit filename="src/Shape.cpp" />
 		<Unit filename="src/Shape.h" />
+		<Unit filename="src/SphericShape.cpp" />
+		<Unit filename="src/SphericShape.h" />
 		<Unit filename="src/Vector.h" />
 		<Unit filename="src/main.cpp">
 			<Option virtualFolder="src/" />
