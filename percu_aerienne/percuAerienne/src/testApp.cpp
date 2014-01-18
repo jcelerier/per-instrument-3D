@@ -6,35 +6,49 @@
 //--------------------------------------------------------------
 void testApp::setup()
 {
-    ofSetWindowShape(3840, 900);
+    ofSetWindowShape(2 * screenwidth, screenheight);
     ofSetVerticalSync(true);
     ofBackground(0);
 
-    ofSetSmoothLighting(true);
-    pointLight.setDiffuseColor(  ofFloatColor(.85, .85, .55));
-    pointLight.setSpecularColor( ofFloatColor(1.f, 1.f, 1.f));
 
     readSetupFile();
     initDrumsticks();
 
+    // Lumière
+    ofSetSmoothLighting(true);
+    pointLight.setDiffuseColor(ofFloatColor(.85, .85, .55));
+    pointLight.setSpecularColor(ofFloatColor(1.f, 1.f, 1.f));
+
+    light.setAmbientColor(ofFloatColor(0.5, 0.5, 0.5));
+
+    // Caméra
+    updateCam();
+
+    // FBOs
+    left.allocate(screenwidth, screenheight, GL_RGBA, 16);
+    right.allocate(screenwidth, screenheight, GL_RGBA, 16);
+
+    // OSC
+    osc.startThread(true, false);
+}
+
+void testApp::updateCam()
+{
+    double viewpoint = 1.6; // 1.6 pour FRONT; -1 pour BACK.
+    double stereoAmplitude = 0.0;
     // Caméra
     camL.setNearClip(0.1);
     camL.setFarClip(50);
-    camL.setPosition(ofVec3f(1.6, 0.01, -0.01));
-    camL.lookAt(ofVec3f(0,0,0),ofVec3f(0, 1, 0));
+    camL.setPosition(ofVec3f(viewpoint, stereoAmplitude, -stereoAmplitude));
+    camL.lookAt(ofVec3f(0,0,-stereoFactor),ofVec3f(0, 1, 0));
     camL.rotate(-90, ofVec3f(1, 0, 0));
 
-    // Caméra
     camR.setNearClip(0.1);
     camR.setFarClip(50);
-    camR.setPosition(ofVec3f(1.6, -0.01, 0.01));
-    camR.lookAt(ofVec3f(0,0,0),ofVec3f(0, 1, 0));
+    camR.setPosition(ofVec3f(viewpoint, -stereoAmplitude, stereoAmplitude));
+    camR.lookAt(ofVec3f(0,0,stereoFactor),ofVec3f(0, 1, 0));
     camR.rotate(-90, ofVec3f(1, 0, 0));
 
-    osc.startThread(true, false);
-
-    left.allocate(1920, 900, GL_RGBA);
-    right.allocate(1920, 900, GL_RGBA);
 }
 
 void testApp::initDrumsticks()
@@ -61,16 +75,13 @@ void testApp::update()
     }
 }
 
-//--------------------------------------------------------------
-void testApp::draw()
+void testApp::drawOneSide()
 {
-    left.begin();
-    ofClear(255,255,255, 0);
-    camL.begin();
     ofEnableDepthTest();
     // Pour avoir de l'éclairage qui fasse 3D
     ofEnableLighting();
     pointLight.enable();
+    light.enable();
 
     // Fond noir : on dessine une grosse sphère qui englobe tout
 
@@ -86,37 +97,28 @@ void testApp::draw()
     ofDisableDepthTest();
 
     ofFill();
+}
+//--------------------------------------------------------------
+void testApp::draw()
+{
+    // Dessin dans les FBO
+    left.begin();
+    ofClear(255,255,255, 0);
+    camL.begin();
+    drawOneSide();
     camL.end();
     left.end();
 
     right.begin();
     ofClear(255,255,255, 0);
     camR.begin();
-    ofEnableDepthTest();
-    // Pour avoir de l'éclairage qui fasse 3D
-    ofEnableLighting();
-
-    pointLight.enable();
-
-    // Fond noir : on dessine une grosse sphère qui englobe tout
-
-    ofDrawSphere(ofGetWidth()/2, ofGetHeight()/2, ofGetWidth());
-
-
-    for(std::vector<Shape*>::iterator i = shapes.begin(); i != shapes.end(); ++i)
-    {
-        (*i)->draw();
-    }
-
-    ofDisableLighting();
-    ofDisableDepthTest();
-
-    ofFill();
+    drawOneSide();
     camR.end();
     right.end();
 
+    // Affichage des FBO à l'écran
     left.draw(0,0);
-    right.draw(1920, 0);
+    right.draw(screenwidth, 0);
 }
 
 void testApp::executeAction(Action a)
@@ -124,12 +126,9 @@ void testApp::executeAction(Action a)
 
     if(a.action == Action::Type::ENTER)
     {
-        std::cerr << "\n\nInstru: " << a.instrument << std::endl;
         for(Shape* s : shapes)
         {
-            std::cerr << s->id << " ";
-
-            if(s->id == a.instrument)
+            if(s->id == a.bird)
             {
                 s->enter();
             }
@@ -148,10 +147,30 @@ void testApp::executeAction(Action a)
             break;
         default:
             break;
-            //std::cerr << "oups! ";
         }
 
     }
+}
+
+void testApp::keyPressed(int key)
+{
+    //     357
+    // 356 359 358
+
+    switch(key)
+    {
+
+    case 357:
+        stereoFactor += 0.005;
+        break;
+    case 359:
+        stereoFactor -= 0.005;
+        break;
+    default:
+        break;
+    }
+
+    updateCam();
 }
 
 // Désolé c'est le code le plus dégueu que j'ai écrit de ma vie - jm
@@ -188,7 +207,6 @@ void testApp::readSetupFile()
         case 1:
             {
                 f = new fileData;
-           //     if(line.substr(0,2) == "Box")
                     f->shape = 1;
                     f->id = std::stoi(line.substr(line.size() - 1, 1));
                 break;

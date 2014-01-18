@@ -22,9 +22,11 @@ public:
 	void setup();
 	void update();
 	void draw();
-
+    void drawOneSide();
 	void readSetupFile();
 	void initDrumsticks();
+    void updateCam();
+	void keyPressed  (int key);
 
     void executeAction(Action a);
 
@@ -39,4 +41,11 @@ public:
 
     ofFbo left;
     ofFbo right;
+
+    int screenwidth = 800;
+    int screenheight = 600;
+
+    ofLight light;
+
+    double stereoFactor = 0.02;
 };

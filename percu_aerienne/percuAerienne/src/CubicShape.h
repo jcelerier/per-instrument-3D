@@ -39,8 +39,6 @@ class CubicShape : public Shape
         {
             inside = true;
             inside_enable = true;
-
-            std::cerr << "coucou";
         }
 
         void position(Vector p)
