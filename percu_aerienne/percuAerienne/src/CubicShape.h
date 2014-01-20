@@ -15,11 +15,6 @@ class CubicShape : public Shape
             if(inside)
             {
                 ofSetColor(250);
-                if(inside_enable)
-                {
-                     count = 5;
-                     inside_enable = false;
-                }
             }
             else
             {
@@ -31,16 +26,16 @@ class CubicShape : public Shape
 
         void update()
         {
-            if((count -= 0.1) < 0)
-                inside = false;
         }
 
         virtual void enter()
         {
-            inside = true;
-            inside_enable = true;
+            inside++;
         }
-
+        virtual void leave()
+        {
+            inside--;
+        }
         void position(Vector p)
         {
             m_box.setPosition(p.x, p.y, p.z);
@@ -69,6 +64,6 @@ class CubicShape : public Shape
         ofBoxPrimitive m_box;
     private:
         double count = 0.1;
-        bool inside = false;
+        int inside = 0;
         bool inside_enable = false;
 };

@@ -25,7 +25,7 @@ class SphericShape: public Shape
         {
 
         }
-
+        virtual void leave(){}
         void position(Vector p)
         {
             m_sphere.setPosition(p.x, p.y, p.z);

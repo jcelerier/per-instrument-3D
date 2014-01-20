@@ -3,6 +3,7 @@
 #include <sstream>
 #include <string>
 #include <iostream>
+
 //--------------------------------------------------------------
 void testApp::setup()
 {
@@ -25,8 +26,8 @@ void testApp::setup()
     updateCam();
 
     // FBOs
-    left.allocate(screenwidth, screenheight, GL_RGBA, 16);
-    right.allocate(screenwidth, screenheight, GL_RGBA, 16);
+    left.allocate(screenwidth, screenheight, GL_RGBA, 4);
+    right.allocate(screenwidth, screenheight, GL_RGBA, 4);
 
     // OSC
     osc.startThread(true, false);
@@ -34,7 +35,8 @@ void testApp::setup()
 
 void testApp::updateCam()
 {
-    double viewpoint = 1.6; // 1.6 pour FRONT; -1 pour BACK.
+
+    double viewpoint = (facing? 1.9 : -0.8); // 1.6 pour FRONT; -1 pour BACK.
     double stereoAmplitude = 0.0;
     // Caméra
     camL.setNearClip(0.1);
@@ -123,7 +125,6 @@ void testApp::draw()
 
 void testApp::executeAction(Action a)
 {
-
     if(a.action == Action::Type::ENTER)
     {
         for(Shape* s : shapes)
@@ -131,6 +132,16 @@ void testApp::executeAction(Action a)
             if(s->id == a.bird)
             {
                 s->enter();
+            }
+        }
+    }
+    if(a.action == Action::Type::LEAVE)
+    {
+        for(Shape* s : shapes)
+        {
+            if(s->id == a.bird)
+            {
+                s->leave();
             }
         }
     }
@@ -159,12 +170,14 @@ void testApp::keyPressed(int key)
 
     switch(key)
     {
-
     case 357:
         stereoFactor += 0.005;
         break;
     case 359:
         stereoFactor -= 0.005;
+        break;
+    case 358:
+        facing = !facing;
         break;
     default:
         break;

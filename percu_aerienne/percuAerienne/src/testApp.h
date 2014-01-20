@@ -42,10 +42,12 @@ public:
     ofFbo left;
     ofFbo right;
 
-    int screenwidth = 800;
-    int screenheight = 600;
+    int screenwidth = 1920;
+    int screenheight = 800;
 
     ofLight light;
 
     double stereoFactor = 0.02;
+
+    bool facing = true;
 };
