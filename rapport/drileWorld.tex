@@ -2,9 +2,13 @@
  \subsubsection{Objects}
  In order to use the hierarchical live looping technique, the Drile implements several objects. This world tries to take the best part of the graphical interface.
 \paragraph{Worms}    
- The first one is what we call a \textit{worm}. It is the representation of the nodes of the live-looping trees.
+ The first object is what we call a \textit{worm}. It is the representation of the nodes of the live-looping trees. They look like their associated analysed audio spectrum in order to ease the identification of each sound during a manipulation.
  
   Image
   
-Those worms have graphical parameters such as color hue, size, transparency and so on. They are mapped to different audio effects parameters in such a way that modifying a worm's appearance would modify its audio effects. The current mapping are based on the result of a user study : size/volume, color hue/pitch, transparency/distortion, .. Moreover, the mapping is relative to each audio sample, so that each worms starts with the same appearance. A graphical parameter 
+Those worms have graphical parameters such as color hue, size, transparency and so on. They are mapped to different audio effects parameters in such a way that modifying a worm's appearance would modify its audio effects. The current mapping are based on the result of a user study : size/volume, color hue/pitch, transparency/distortion, .. Moreover, the mapping is relative to each audio sample, so that each worms starts with the same appearance. To improve interaction a graphical parameter also gives the current value of the effect. The rotation of a worm on the y-axis provides information about the reading position of the associated audio.
+
+\paragraph{Tunnels}    
+Worms audio parameters and their associated graphical parameters can be modified by grabbing and sliding them through \textit{tunnels}.
+
   
