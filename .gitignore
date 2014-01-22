@@ -15,6 +15,9 @@
 
 
 ### LaTeX ###
+rapport/rapport.pdf
+*.pdf
+*.glsdefs
 *.acn
 *.acr
 *.alg

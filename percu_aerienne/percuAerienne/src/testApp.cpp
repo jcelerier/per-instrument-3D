@@ -3,45 +3,71 @@
 #include <sstream>
 #include <string>
 #include <iostream>
+
 //--------------------------------------------------------------
 void testApp::setup()
 {
+    ofSetWindowShape(2 * screenwidth, screenheight);
     ofSetVerticalSync(true);
-    ofBackground(20);
+    ofBackground(0);
 
-    ofSetSmoothLighting(true);
-    pointLight.setDiffuseColor( ofFloatColor(.85, .85, .55) );
-    pointLight.setSpecularColor( ofFloatColor(1.f, 1.f, 1.f));
 
-/*
-    CubicShape* cube = new CubicShape;
-    cube->position(Vector(400.2, 200.3, -600));
-    cube->rotationX(45);
-    cube->rotationY(128);
-    shapes.push_back(cube);
-*/
     readSetupFile();
-    cam.setNearClip(1);
-    cam.setFarClip(50);
-    cam.setPosition(ofVec3f(2, 0, 0));
+    initDrumsticks();
 
-    cam.lookAt(ofVec3f(0,0,0),ofVec3f(0, 1, 0));
-    cam.rotate(-90, ofVec3f(1, 0, 0));
-    //setupCam();
-    //cam.setPosition(0,0,-1); // where are we?
+    // Lumière
+    ofSetSmoothLighting(true);
+    pointLight.setDiffuseColor(ofFloatColor(.85, .85, .55));
+    pointLight.setSpecularColor(ofFloatColor(1.f, 1.f, 1.f));
 
+    light.setAmbientColor(ofFloatColor(0.5, 0.5, 0.5));
+
+    // Caméra
+    updateCam();
+
+    // FBOs
+    left.allocate(screenwidth, screenheight, GL_RGBA, 4);
+    right.allocate(screenwidth, screenheight, GL_RGBA, 4);
+
+    // OSC
     osc.startThread(true, false);
+}
+
+void testApp::updateCam()
+{
+
+    double viewpoint = (facing? 1.9 : -0.8); // 1.6 pour FRONT; -1 pour BACK.
+    double stereoAmplitude = 0.0;
+    // Caméra
+    camL.setNearClip(0.1);
+    camL.setFarClip(50);
+    camL.setPosition(ofVec3f(viewpoint, stereoAmplitude, -stereoAmplitude));
+    camL.lookAt(ofVec3f(0,0,-stereoFactor),ofVec3f(0, 1, 0));
+    camL.rotate(-90, ofVec3f(1, 0, 0));
+
+    camR.setNearClip(0.1);
+    camR.setFarClip(50);
+    camR.setPosition(ofVec3f(viewpoint, -stereoAmplitude, stereoAmplitude));
+    camR.lookAt(ofVec3f(0,0,stereoFactor),ofVec3f(0, 1, 0));
+    camR.rotate(-90, ofVec3f(1, 0, 0));
 
 }
+
+void testApp::initDrumsticks()
+{
+    ds1 = new SphericShape();
+    ds2 = new SphericShape();
+
+    shapes.push_back(ds1);
+    shapes.push_back(ds2);
+}
+
 double theta = 0;
 //--------------------------------------------------------------
 void testApp::update()
 {
     pointLight.setPosition((ofGetWidth()*.5), ofGetHeight()/2, 500);
     //cam.setPosition(ofVec3f(cos(theta), 0, 2 * sin(theta)));
-
-
-
    //cam.rotate(theta, ofVec3f(1, 0 , 0));
     theta += 0.1;
 
@@ -51,14 +77,13 @@ void testApp::update()
     }
 }
 
-//--------------------------------------------------------------
-void testApp::draw()
+void testApp::drawOneSide()
 {
-    cam.begin();
     ofEnableDepthTest();
     // Pour avoir de l'éclairage qui fasse 3D
     ofEnableLighting();
     pointLight.enable();
+    light.enable();
 
     // Fond noir : on dessine une grosse sphère qui englobe tout
 
@@ -71,30 +96,94 @@ void testApp::draw()
     }
 
     ofDisableLighting();
-
-
     ofDisableDepthTest();
 
     ofFill();
-    cam.end();
+}
+//--------------------------------------------------------------
+void testApp::draw()
+{
+    // Dessin dans les FBO
+    left.begin();
+    ofClear(255,255,255, 0);
+    camL.begin();
+    drawOneSide();
+    camL.end();
+    left.end();
+
+    right.begin();
+    ofClear(255,255,255, 0);
+    camR.begin();
+    drawOneSide();
+    camR.end();
+    right.end();
+
+    // Affichage des FBO à l'écran
+    left.draw(0,0);
+    right.draw(screenwidth, 0);
 }
 
 void testApp::executeAction(Action a)
 {
-
     if(a.action == Action::Type::ENTER)
     {
-        std::cerr << "\n\nInstru: " << a.instrument << std::endl;
         for(Shape* s : shapes)
         {
-            std::cerr << s->id << " ";
-
-            if(s->id == a.instrument)
+            if(s->id == a.bird)
             {
                 s->enter();
             }
         }
     }
+    if(a.action == Action::Type::LEAVE)
+    {
+        for(Shape* s : shapes)
+        {
+            if(s->id == a.bird)
+            {
+                s->leave();
+            }
+        }
+    }
+    if(a.action == Action::Type::RECORD)
+    {
+        Vector pos(a.delta_x, a.delta_y, a.delta_z);
+        switch(a.instrument)
+        {
+        case 1:
+            ds1->position(pos);
+            break;
+        case 2:
+            ds2->position(pos);
+            break;
+        default:
+            break;
+        }
+
+    }
+}
+
+void testApp::keyPressed(int key)
+{
+    //     357
+    // 356 359 358
+
+    switch(key)
+    {
+    case 357:
+        stereoFactor += 0.005;
+        break;
+    case 359:
+        stereoFactor -= 0.005;
+        break;
+    case 358:
+        facing = !facing;
+        break;
+    default:
+        break;
+    }
+
+    updateCam();
 }
 
 // Désolé c'est le code le plus dégueu que j'ai écrit de ma vie - jm
@@ -131,7 +220,6 @@ void testApp::readSetupFile()
         case 1:
             {
                 f = new fileData;
-           //     if(line.substr(0,2) == "Box")
                     f->shape = 1;
                     f->id = std::stoi(line.substr(line.size() - 1, 1));
                 break;

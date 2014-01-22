@@ -5,7 +5,7 @@
 #include "Action.h"
 #include <vector>
 #include <Shape.h>
-
+#include <SphericShape.h>
 class testApp : public ofBaseApp{
 
 public:
@@ -22,14 +22,32 @@ public:
 	void setup();
 	void update();
 	void draw();
-
+    void drawOneSide();
 	void readSetupFile();
+	void initDrumsticks();
+    void updateCam();
+	void keyPressed  (int key);
 
     void executeAction(Action a);
 
     std::vector<Shape*> shapes;
     ofLight pointLight;
-    ofCamera cam;
+    ofCamera camL;
+    ofCamera camR;
 
     OscThread osc;
+
+    SphericShape* ds1, *ds2;
+
+    ofFbo left;
+    ofFbo right;
+
+    int screenwidth = 1920;
+    int screenheight = 800;
+
+    ofLight light;
+
+    double stereoFactor = 0.02;
+
+    bool facing = true;
 };

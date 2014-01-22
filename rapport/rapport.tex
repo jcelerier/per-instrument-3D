@@ -25,7 +25,7 @@
 \usepackage{fancyvrb}
 \usepackage{float}
 \definecolor{gris25}{gray}{0.75}
-\hypersetup{colorlinks=true, urlcolor= blue, linkcolor= blue}
+\hypersetup{pdftex,colorlinks=true, urlcolor= blue, linkcolor= blue}
 
 
 % % % Pour avoir plus de figures
@@ -52,7 +52,7 @@
 \title{
 \begin{figure} [h!]
 \begin{center}
-\includegraphics[width=0.4\textwidth]{LogoUniversiteBX1.jpg}
+\includegraphics[width=0.4\textwidth]{image/LogoUniversiteBX1.jpg}
 \end{center}	
 \end{figure}
 \textbf{\large{Université of Bordeaux \\
@@ -68,7 +68,7 @@
  \textsc{Larralde}, and Florent \textsc{Berthaut}}}
 
 
-\author{\fcolorbox{gris25} {gris25} {\small{Mohamed \textsc{Bourara}, Jean \textsc{Bui-Quang}, Omar \textsc{Ourhi}, Jean-Michaël \textsc{Celerier}, Marie \textsc{Immacula Omiscar} and Damien \textsc{Clergeaud}}}}
+\author{\fcolorbox{gris25} {gris25} {\small{Mohamed \textsc{Bourara}, Jean \textsc{Bui-Quang}, Omar \textsc{Ourhi}, Jean-Michaël \textsc{Celerier}}}\\ \fcolorbox{gris25} {gris25}{\small{Marie \textsc{Immacula Omiscar} and Damien \textsc{Clergeaud}}}}
 
 \date{\fcolorbox{gris25} {gris25} {\today}}
 
@@ -95,33 +95,15 @@
 \input{musicalinstr}
 \input{drile}
 \input{percuaerienne}
-\chapter{Realisation}
+\chapter{Implementation}
 \input{demandeclient}
 \input{implementation}
+\input{results}
 
 \include{conclusion}
 
 \printglossaries
 
-\newpage
-\begin{itemize}
-
-\item L'article \cite{holliman2011three} 
-\item L'article \cite{pimenta2012comprehensive} 
-\item L'article \cite{mehrabi2013making} 
-
-\item L'article \cite{kim2012frontal} 
-
-\item L'article \cite{cadoz1999musique} 
-
-\item L'article \cite{berthaut2010piivert}
-\item Le livre \cite{okoshi1976three}
-\item L'article \cite{rodet2005study} 
-\item L'article \cite{plumage2007} 
-\item L'article \cite{maki2005} 
-\item L'article \cite{wozniewski2006spatial}
-
 \bibliographystyle{alpha}
 \bibliography{instru3d}
-\end{itemize}
 \end{document}
