@@ -23,11 +23,30 @@ Since this is for a show, we need a system that will allow everybody in the room
 \subsubsection{Double-view requirement}
 This is one of the hardest requirements, because it can easily double the quantity of required hardware. For instance, if we were to use 3D TVs, we would need one TV for the viewers and one for the performer.
 
-\subsection{DRILE Implementation}
-\subsubsection{Technologies used}
-\subsubsection{Pictures}
+\subsubsection{The choice}
+We chose to go with the Pepper's Ghost technique, with polarized stereo glasses. This was mainly because it was the only method efficiently available with all the tools at our disposal : no additional fees are required.
+
+Due to computer limits, we could not test the two views, but it is implemented in our software. We mainly did focus on the Aerial Percussion, because we did not know how to use the DRILE code. 
+
 \subsection{Aerial Percussion implementation}
+We will described here the implementation of the Aerial Percussion 3D renderer.
 \subsubsection{Technologies used}
+We worked with \brand{OpenFrameworks}, a \brand{C++} abstraction over many different media libraries, like \brand{OpenGL}, \brand{OpenNI} and many others. It makes the implementation of creative software easy while retaining the power and speed efficiency of the \brand{C++}.
+
+Our software listens to \brand{OSC} messages, which means that it would be easy to put it on two computers and have one computer display the images for the spectators, and the other for the musician.
+
 \subsubsection{Displaying the data}
-\paragraph{Truc sur les angles}
-\subsubsection{Pictures}
+\paragraph{Pepper's Ghost technique}
+In order to have the Pepper's Ghost technique work efficiently, we have to display our shapes on a black background, so that only the bright parts reflects on the glass screen.
+
+\paragraph{Stereoscopic display}
+The method uses two projectors, one on the top of another.
+Each projector has a polarizing filter and is connected to a different input of the computer.
+
+The computer, running \brand{Debian GNU/Linux}, is set up so that there is a single viewport of twice a projector's horizontal resolution. Each projector receivew one half of the viewport.
+
+For instance, the actual resolution of a projector is $1920 \times 1080$. Hence, the viewport is $3840 \times 1080$.
+
+The software then runs at the same resolution, and the image is displayed from two point of views, that slightly differs on the horizontal axis. This allows to generate a 3D effect when the images are projected on the same point in space, because each eye will receive the correct image, as we could see on paragraph \ref{par:polarized}.
+
+We added the feature to change the distance between the eyes in order to find the most pleasant one, using the keyboard keys.
