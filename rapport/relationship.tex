@@ -48,35 +48,47 @@ The user handles 3D shapes in a 3D environement to influence the music generatio
 Immersion is a psychologic state where the subject stops about taking care of its own physical state.
 The immersion is quite important in virtual reality. For instance, for the Aerial Percussion, it would come down to the state the performer is when he stops thinking consciously of the disposition of the shapes he interacts with. The musician will then be immersed in the virtual 3D environment which consists in the shapes disposition.
 
-\paragraph{}
 Hence, to immerse an user, multiple parameters are accessible to the 3D instrument designer. 
 They are mostly linked to the senses of the human body. In our project, we will mainly focus on vision, and more precisely on 3D display devices.
 
-\paragraph{}
+\paragraph{Interactivity \& reactivity}
 Interactivity is an important aspect of the immersion capacities of a musical system.
-The user is more likely to get an immersive feeling in a virtual world, if the world instantly reacts to his actions
-L'interactivité a une part importante dans l'aspect immersif d'un système. L'utilisateur a d'autant plus le sentiment d'immersion dans un monde virtuelle si celui ci réagit instantanément à ses actions. Ceci nous amène a définir les contrôles d'un instrument de musique 3D et l'importance de l'interactivité.
+The user is more likely to get an immersive feeling in a virtual world, if the world instantly reacts to his actions and gestures \cite{biocca1995immersive}.
+This leads us to an important part of the 3D musical instrument : the interface, the controls that the performer requires to operate the instrument.
 
 \section{Control}
-\paragraph{}
-Pour le contrôle de l'instrument de musique 3D, il est important de voir le système de deux manières. Dans un premier temps comme un instrument de musique, qui donc doit répondre à certaine contraintes qui permet d'assurer la précision et la qualité attendu par un musicien de son instrument. Et dans un second temps comme un système interactif immersif, c'est à dire une très grande interactivité et de tirer profits un maximum des caractéristiques de l'être humain (retour visuelle immersif et retour haptique).
+In order to understand and define what is the control of a 3D musical instrument, it is necessary to think of the instrument in two different ways : 
+\begin{enumerate}
+\item First of all, it is a musical instrument, which implies multiples constraints :
+\begin{itemize}
+\item It has to be adapted to the human body shape so that the musican can manipulate it.
+\item It has to be precise enough for the performer to be able to learn how to play the instrument.
+\end{itemize}
+\item But it is also an interactive immersive system, which means that it requires :
+\begin{itemize}
+\item A lot of interactivity.
+\item The usage of senses for a feedback : for instance, immersive visual and haptic feedback (as well as auditive, since it is a musical instrument).
+\end{itemize} 
+\end{enumerate}
 
-\paragraph{}
-Pour la manipulation d'un instrument de musique, la segmentation de la gestuel faite par Cadoz \cite{cadoz1999musique} est très pertinente. Cadoz définit trois types de gestes:
+\paragraph{Musical instrument gestures}
+In order to conceive a 3D musical instrument, it is necessary to understand the movements that the musician does while playing. For instance, the Cadoz gesture segmentation \cite{cadoz1999musique} is an attempt to differentiate different families of gestures while playing.
+
+Cadoz defines three kinds of gestures that all come to play when playing music:
 
 \begin{itemize}
-\item les gestes de sélection : action de sélection du musicien d'un composant de l'instrument plutôt qu'un autre, par exemple dans le cas d'un violon cela revient à choisir une corde plutôt qu'une autre.
-\item les gestes de modification : action qui modifit l'état de l'instrument, dans le cas d'une guitare cela revient à utiliser sa main gauche pour presser une ou des cordes sur l'une des cases du manche.
-\item les gestes d'excitation : action qui génère directement et physiquement le son, qui revient à pincer une corde dans le cas d'une guitare. C'est ce geste qui est soumis à l'expression de l'artiste.
+\item Selection gestures : The musician selects a component of the instrument that he will play on. For instance, for stringed musical instruments, where the same tone can be achieved on different strings, but with a different timber, it is the choice of the string on which the note will be played.
+\item Modification gestures : It is an action that modifies the physical state of the instrument. For instance, it would be the case of the guitar player who presses its hand on the guitar strings against the wood. 
+\item Excitation gestures : These actions are the ones generating the actual sound of the instrument, by making the air vibe. On a guitar, it would be picking a string, and on a violin, it would be moving the bow against a string. This gesture is the one the artist can put expression inside : for instance, a violonist can press his bow softly or hardly, in order to change the nuance.
 \end{itemize}
 
-\paragraph{}
-Mais il ne faut pas oublier le caractère immersif du système, celui impose que l'utilisateur ait un certain confort de manipulation. L'immersion visuelle est souvent améliorer grâce à un suivi de tête à l'aide d'une Kinect. Ceci permet d'adapter la projection en fonction de la position de la tête de l'utilisateur et cela augmente l'impression d'immersion.
-Des boutons de pressions à retour haptique augmentent aussi la conscience des actions de l'utilisateur, donc sa précision d'action.
+\paragraph{Control and immersion}
+In order to correctly play an instrument, the user requires some kind of manipulation comfort : it must not be painful or too tiring to play. 
+Hence the requirement for immersion : being immersed means that the user does not need to put effort into playing the 3D musical instrument, he becomes part of it.
+An easy way to improve immersion is to make the environment react to the performer's movements. 
 
-\paragraph{}
-Nous verrons dans la suite de ce rapport que Florent Berthaut s'est posé toutes ces questions lorsqu'il a conçu Piivert \cite{berthaut2010piivert} pour contrôler le DRILE.
+This can be achieved by using head tracking, with a \brand{Kinect} for instance, or a \ac{HMD}, a \ac{CAVE} or other virtual reality devices and methods like Fishtank VR \cite{robertson1997immersion}. This allows to adapt the scene's projection to the movements of the head of the user : for instance, if he turns his head to the right, the display will adapt by showing him what he would see if it was real.
 
-\paragraph{}
-Maintenant que le concept d'instrument de musique 3D est bien défini, nous allons pouvoir nous focaliser sur les techniques de rendu 3D qui nous intèressent plus particulièrement vis à vis de notre sujet.
+Haptic feedback buttons also increase the consciousness of the user's actions, which implies an increased precision.
 
+Florent Berthaut thought about most of these problematics while conceiving \brand{Piivert} \cite{berthaut2010piivert}, the control interface to the \brand{Drile}.
