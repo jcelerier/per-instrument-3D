@@ -1,27 +1,29 @@
 \subsection{Hierarchical Live-Looping}
 
-Le processus musical du DRILE est basé sur la technique du live-looping hiérarchique.
+The DRILE musical process is based on the hierarchical live-looping technique.
 
-\paragraph{What is the Live-Looping?}
-Le Live-Looping est une technique de composition qui à vue le jour grâce à de grands compositeurs comtemporains comme Steve Reich.
-Le principe est relativement simple. Le concept est de composer une musique en ne prenant que des extraits de musique joués en boucle. En superposant les boucles et en ajoutant des effets à ces boucles, cela peut construire assez rapidement des musiques complexes.
-Avec la musique électronique, ce concept a beaucoup était utilisé pour la performance musicale par des guitaristes ou electronic musicians.
+\paragraph{What is Live-Looping?}
+
+Live-looping is a composition technique which came to light owing to famous modern compositors such as Steve Reich.
+The concept is relatively simple : composing music using only samples that are played in loop. Stacking those loops and adding multiple audio effects on them can easily produce complex musics.
+It has been used a lot for musical performance especially by guitarists and electronic musicians.
 
 ~
 
-L'une des limites de ce concept, c'est qu'il ne permet pas de manipuler des structures complexes mais seulement des sequences d'extraits de musique. Donc une struture assez linéaire.
+Nevertheless, one of its limits is that one cannot manipulate complex structures but only samples sequencies. So the structure remains quite linear.
 
 \paragraph{Hierarchical Live-Looping}
 
-Inspiré des travaux de Marczak \cite{marczak2007etude}, le live-looping hierarchique structure le live-looping sous forme d'arbre. Les feuilles de cette arbres sont composées d'un extrait de musique (ie. un extrait audio ou une synthèse sonore) et d'une liste d'effets musicaux. Chaque noeud comporte un liste des fils, une listes d'effets musicaux et un contenu musical. Le contenu musical est composé grâce aux contenus musicaux des fils.
-Ainsi en ajoutant un effet à une feuille, le contenu musical de la feuille se voit modifier alors qu'en ajoutant un effet à un noeud, cela applique l'effet sur le contenu musical du noeud. Ainsi il est possible à l'aide d'opération sur les arbres classiques (duplication, concaténation...) de manipuler la structure musicale de manière plus complexe.
+Inspired from Marczak \cite{marczak2007etude} works, hierarchical live-looping organizes live-looping in a tree. Leafs are composed of samples (i.e audio extract or synthetized sound) and a musical effects list.Then, each node are made up of a node children list, a musical effects list, and a musical content. This content is the result of the children musical contents.
+In that way, adding an effect to a leaf will only affects its own musical content. Whereas adding an effect to a node will apply the effects to the whole musical content produced from all children. It becomes possible with operations on tree (duplication, merging,...) to manipulate a more sophisticated musical structure. 
 
-Toutes ces manipulations d'arbres sont rendus plus simple grâce à la représentation 3D de cette structure.
+All these tree manipulations get simplified with the 3D representation of this structure.
 
-//MARIE
+// REFORMULEE AU DESSUS
 L'instrument Drile qui constitue une partie importante de notre étude, est basé sur la technique live-looping hiérarchique, il est donc bon de parler de cette technique.\\
 Tout d'abord le live-looping classique est une technique qui consiste à enregistrer des échantillons audio ou de contrôle, et de lire cet enregistrement en boucle, en temps réel . L'idée de base de cette technique est de prendre (capturer) et de mettre en boucle, une partie d'une performance ou d'une chanson en temps réel puis de pouvoir jouer d'autres morceaux par dessus. \\
 Le live-looping hiérarchique est plus adapté pour obtenir de bonnes structures musicales, il permet d'améliorer le live-looping classique en ajoutant une structure arborescente à ce dernier. Un arbre est composé de nœuds, de feuilles et d’enfants. Dans cette structure arborescente que propose le live-looping hiérarchique, les feuilles contiennent tout ce qui est audio et les nœuds des événements de contrôle. Pour les deux techniques, les effets qu'on peut ajouter à une composition musicale sont pratiquement identiques sauf que, pour les nœuds il y a en plus les effets de contrôle.\\
 Il existe un ensemble d'opérations qui permet de manipuler ces arbres. La possibilité de fusionner ces différentes opérations, facilite la construction de structures musicales variées et complexes, contrairement à la technique live-looping classique.\\
-
+\\
+//
 
