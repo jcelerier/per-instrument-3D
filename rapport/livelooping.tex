@@ -1,21 +1,20 @@
 \subsection{Hierarchical Live-Looping}
-// TRAD A VERIFIER
-The DRILE musical process is based on the hierarchical live-looping technique.
+The Drile musical process is based on the hierarchical live-looping technique.
 
-\paragraph{What is Live-Looping?}
+\subsubsection{Live-Looping}
+Live-looping is a composition technique which came to light thanks to famous modern composers such as Steve Reich.
+The concept is relatively simple : music  is composed using only samples that are played in loops. Stacking those loops and adding multiple audio effects on them can easily produce complex musics.
+It has been used a lot for musical performance especially by singers, guitarists because they can build their own backing tracks easily. Many electronic musicians are using this technique to produce entire songs.
 
-Live-looping is a composition technique which came to light owing to famous modern compositors such as Steve Reich.
-The concept is relatively simple : composing music using only samples that are played in loops. Stacking those loops and adding multiple audio effects on them can easily produce complex musics.
-It has been used a lot for musical performance especially by singers, guitarists because they can build their own accompaniment easily. Many electronic musicians are using this technique to produce entire music.
+Nevertheless, one of its limits is that one cannot manipulate complex structures but only sequences of samples. So the structure remains quite linear.
 
-~
+\subsubsection{Hierarchical Live-Looping}
+Inspired from Marczak \cite{marczak2007etude} works, hierarchical live-looping organizes live-looping in a tree structure which leads to a more complex musical structure. 
 
-Nevertheless, one of its limits is that one cannot manipulate complex structures but only samples sequences. So the structure remains quite linear.
+Leafs are composed of raw samples (i.e audio extract or synthesized sound) and a musical effects list that is to be applied on the associated sample. 
+Then, each node is made of a node children list, a musical effects list, and a musical content. 
+This last content is the result of the children musical contents.
 
-\paragraph{Hierarchical Live-Looping}
-
-Inspired from Marczak \cite{marczak2007etude} works, hierarchical live-looping organizes live-looping in a tree structure which leads to a more complex musical structure. Leafs are composed of raw samples (i.e audio extract or synthesized sound) and a musical effects list that will be applied on the associated sample. Then, each node are made up of a node children list, a musical effects list, and a musical content. This last content is the result of the children musical contents.
-In that way, adding an effect to a leaf will only affects its own musical content. Whereas adding an effect to a node will apply the effects to the whole musical content produced from all children. It becomes possible with operations on tree (duplication, merging,...) to manipulate a more sophisticated musical structure. 
+In that way, adding an effect to a leaf will only affects its own musical content. Whereas adding an effect to a node will apply the effects to the whole musical content produced from all children. It becomes possible with operations on tree (duplication, merging\dots ) to manipulate a more sophisticated musical structure. 
 
 All these tree manipulations get simplified with the 3D representation of this structure.
-//
