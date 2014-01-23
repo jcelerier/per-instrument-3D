@@ -36,7 +36,7 @@ void testApp::setup()
 void testApp::updateCam()
 {
 
-    double viewpoint = (facing? 1.9 : -0.8); // 1.6 pour FRONT; -1 pour BACK.
+    double viewpoint = (facing? frontDistance : backDistance); // 1.9 pour FRONT; -0.8 pour BACK.
     double stereoAmplitude = 0.0;
     // Caméra
     camL.setNearClip(0.1);
@@ -62,14 +62,10 @@ void testApp::initDrumsticks()
     shapes.push_back(ds2);
 }
 
-double theta = 0;
 //--------------------------------------------------------------
 void testApp::update()
 {
     pointLight.setPosition((ofGetWidth()*.5), ofGetHeight()/2, 500);
-    //cam.setPosition(ofVec3f(cos(theta), 0, 2 * sin(theta)));
-   //cam.rotate(theta, ofVec3f(1, 0 , 0));
-    theta += 0.1;
 
     for(std::vector<Shape*>::iterator i = shapes.begin(); i != shapes.end(); ++i)
     {
@@ -167,16 +163,21 @@ void testApp::keyPressed(int key)
 {
     //     357
     // 356 359 358
-
     switch(key)
     {
-    case 357:
+    case 358:
         stereoFactor += 0.005;
         break;
-    case 359:
+    case 356:
         stereoFactor -= 0.005;
         break;
-    case 358:
+    case 357:
+        facing? frontDistance -= 0.01 : backDistance += 0.01;
+        break;
+    case 359:
+        facing? frontDistance += 0.01 : backDistance -= 0.01;
+        break;
+    case 32:
         facing = !facing;
         break;
     default:
@@ -212,16 +213,15 @@ void testApp::readSetupFile()
 
     while (std::getline(infile, line))
     {
-        int mod = i++ % 8;
-        switch(mod)
+        switch(i++ % 8)
         {
         case 0:
             break;
         case 1:
             {
                 f = new fileData;
-                    f->shape = 1;
-                    f->id = std::stoi(line.substr(line.size() - 1, 1));
+                f->shape = 1;
+                f->id = std::stoi(line.substr(line.size() - 1, 1));
                 break;
             }
         case 2:
