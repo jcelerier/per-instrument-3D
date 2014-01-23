@@ -50,7 +50,7 @@ Texture gradient \cite{howard2012perceiving} \\
 A complete classification of the current state of the art in 3D displays using these visual cues is present in \cite{mehrabi2013making} on Table 2.
 
 \subsection{Definition of a 3D display}
-The definition retained in \cite{pimenta2012comprehensive} is the following : a 3D display is a display that uses at least one of the physiological cues. We will see that most of the displays use the stereoscopy cue, because it is the one that provides the most convincing 3D experience\cite{kaufman122006perceptual}.
+The definition retained in \cite{pimenta2012comprehensive} is the following : a 3D display is a display that uses at least one of the physiological cues. We will see that most of the displays use the stereoscopy cue, because it is the one that provides the most convincing 3D experience\cite{kaufman122006perceptual} thanks to \gls{stereopsis}.
 
 \section{Classification of the 3D displays}
 One of the main problem while trying to find a proper \gls{display} for a given application is to choose a relevant classification for the displays, that allows a choice with criterions relevant to the application.
@@ -85,14 +85,25 @@ This section describes the different technologies used by manufacturers of 3D di
 \textbf{Stereoscopy} is the set of techniques used to reproduce a depth perception from two planar images.\\
 \textbf{Autostereoscopy} is a method of image representation, either in three-dimension or stereoscopic, which requires no additional device to render the 3D effect. 
 
+
 \subsection{Two-view 3D displays}
-Since a decade, a new generation of screens appeared: 3D screens. The main feature of these screens, which distinguishes them from conventional screens, is their ability to display stereoscopic images : each eye of the observer will receive a different point of view.
+This is the category of most commercial 3D display technologies, like the common 3D TV screens or 3D movie theater technologies. The main feature of these screens, which distinguishes them from conventional screens, is their ability to display stereoscopic images : each eye of the observer will receive a different point of view.
 There are multiple technologies that are able to power such screens; we will explain some. But an exhaustive list is present in \cite{mehrabi2013making}.
 
-\subsubsection{Wavelength selective displays}
-To view in 3D, it is necessary to provide our brain two images of the same scene taken from two different points of view. This is the principle of stereoscopy. The distance between the two points of view is used to compute the depth of field to achieve the 3D effect.\\
-Different methods exist so that each eye receives the intended image. 
+\subsubsection{About the time}
+There are two major technologies that are in use to create a 3D effect from two image streams.
+\subsubsection{Time-sequential displays}
+The idea is that the images are shown one after the other, but it has two requirements : 
+\begin{itemize}
+\item The switching between images must be fast : a refresh rate of 48 Hz is theoretically minimal for a 24 fps movie, however research \cite{holliman2011three} shown that 58 Hz is a practical minimum.
+\item Each eye must see only the images directed to it. There are multiple technologies to achieve this, passive and active.
+\end{itemize}
 
+\subsubsection{Time-parallel displays}
+This is the opposite of time-sequential two-view displays. Both eyes receive a stream of images at the same time.
+
+\subsection{Presentation of the methods}
+\paragraph{Wavelength selective displays}
 The most famous are the anaglyph glasses, pictured on figure \ref{fig:anaglass}. However, the result is of poor quality and unpleasant after some time.
 
 \begin{figure}[h!]
@@ -104,16 +115,10 @@ The most famous are the anaglyph glasses, pictured on figure \ref{fig:anaglass}.
 
 In this case, images are filtered by colour. The two images are superimposed and the glasses incorporate a colour filter. Each eye can only see the image intended for it, so this can be used to create a stereoscopic effect. 
 
-This is a passive method.
+This is generally used as a time-parallel method.
 
-\subsubsection{Time-sequential two-view displays}
-The idea is that the images are shown one after the other, but it has two requirements : 
-\begin{itemize}
-\item The switching between images must be fast : a refresh rate of 48 Hz is theoretically minimal for a 24 fps movie, however research \cite{holliman2011three} shown that 58 Hz is a practical minimum.
-\item Each eye must see only the images directed to it. There are multiple technologies to achieve this, passive and active.
-\end{itemize}
-
-\paragraph{Passive method}
+\paragraph{Polarized method}
+\label{par:polarized}
 This technique uses polarized glasses. The right lens is polarized in one direction while the left lens is polarized in the other direction, as in figure \ref{fig:polarized3D}. 
 
 \begin{figure}[h!]
@@ -129,18 +134,16 @@ This technique uses polarized glasses. The right lens is polarized in one direct
 This is not an expensive method, however the image is often less bright. It is generally used in movie theaters.
 
 \paragraph{Active method}
-This technique uses active glasses, with LCD shutters that needs to be synchronized with the screen refresh rate : one of the glass goes black while the other allow the light to pass, which allows the eyes to receive only the wanted image at the wanted time.
+This technique uses active glasses, with LCD shutters that needs to be perfectly synchronized with the screen refresh rate : one of the glass goes black while the other allow the light to pass, which allows the eyes to receive only the wanted image at the wanted time.
 
 This method is more expensive, but reviews often said it offers a better experience.
 
-\subsubsection{Time-parallel two-view displays}
-This is the opposite of time-sequential two-view displays. Both eyes receive a stream of images at the same time.
+It is a time-sequential method.
 
-\paragraph{Simple stereoscopy}
-\label{par:polarized}
-There are multiple designs available. One would be a variation on the polarized glasses : instead of having the images one after the other, they are put together, for instance by using a dual projector. However, this can lead to crosstalk.
+\paragraph{Multi-screen display}
+This design uses multiple LCD displays, one seen in transmission and the other in reflection in a mirror, in order to change the polarization of the reflected screen.
 
-Another design uses multiple LCD displays, one seen in transmission and the other in reflection in a mirror, in order to change the polarization of the reflected screen.
+This way, with polarized glasses, it as again possible to see with stereoscopy.
 
 \paragraph{Auto-stereoscopy}
 This technique is interesting, because no special headgear is required : the correct light information is sent directly by the screen to the eyes.
@@ -149,8 +152,10 @@ However, the viewer has to be at a precise position in front of the screen for i
 
 Some recent designs can for instance use reflective screens \cite{smithwick2013autostereoscopic}.
 
-\subsection{Horizontal parallax multiview 3D displays}
-Multiview or multiscopic displays are displays that can be seen from a finite number of point of view and show a different picture corresponding to this point of view.
+\subsection{Multi-view displays}
+Multiview or multiscopic displays are displays that can be seen from a finite, discrete, number of point of view and show a different picture corresponding to this point of view.
+
+The focus on this part will be on horizontal parallax displays : the different point of view are on the horizontal axis.
 
 There are two main types of technology for multiview parallax displays: either by applying a parallax barrier, or by application of a lenticular panel.
 
@@ -200,8 +205,13 @@ However, there are some disadvantages :
 \item Brightness is generally lower due to most of the light being occluded by the mask However, a recent amelioration on this technique greatly improves brightness\cite{lv2014shared}.
 \end{itemize}
 
-\subsubsection{Multi-Projector Displays}
+\subsection{Omni-view Displays}
+These displays can be seen from more than a point of view and would show a correct image from any accessible point of view.
+
+\subsubsection{Multi-projector display}
 This method consists in positioning several projectors in a circle. They all display the image under a different angle. The images are projected onto a special screen. For instance, a double lenticular lens example (a spherical lens) works well, but the easiest way is to project these images on a cylindrical fog, as in figure \ref{fig:cilfog}.
+
+Lasers can also be used : they would provide more contrast, but shapes cannot be very detailed.
 
 \begin{figure}[h!]
 \centering\includegraphics[width=6cm,height=4cm]{image/lapin.png}
