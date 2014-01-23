@@ -5,7 +5,7 @@ At the \ac{SCRIME} and \ac{LaBRI}, three-dimensional musical instruments have be
 
 The \brand{Drile} \cite{berthaut2010drile} is a 3D musical instrument which allows manipulation of the structure of a song using \gls{livelooping}, in an immersive virtual reality scene.
 
-The \brand{Aerial Percussion} is a 3D musical instrument which generates sounds using the position in space of sensors which are put at the end of drumsticks. Virtual 3D shapes like cubes, cylinders, are positionned around the instrument and the musician. According to the position, the orientation, and the speed of the sensors, sounds are generated.
+The \brand{Aerial Percussion} is a 3D musical instrument which generates sounds using the position in space of sensors which are put at the end of drumsticks. Virtual 3D shapes like cubes, cylinders, are positioned around the instrument and the musician. According to the position, the orientation, and the speed of the sensors, sounds are generated.
 
 \paragraph{Objectives}
 We were asked to implement a prototype of a 3D render and display device, for musical performance.
@@ -29,19 +29,19 @@ Virtual reality provides display and control methods while computer music techno
 
 \paragraph{Example for the Drile}
 For instance, the picture \ref{fig:drile} shows a musician with special glasses, as well as joysticks with force-feedback haptic sensors (Piivert \cite{berthaut2010piivert}). 
-The user handles 3D shapes in a 3D environement to influence the music generation. A specific part of this report will be dedicated to a precise study of the \brand{Drile}.
+The user handles 3D shapes in a 3D environment to influence the music generation. A specific part of this report will be dedicated to a precise study of the \brand{Drile}.
 
 \begin{figure}[t]
 \centering
 \includegraphics[scale=0.3]{image/drile.jpg}
-\caption{Picture of a musician using DRILE}
+\caption{Picture of a musician using Drile}
 \label{fig:drile}
 \end{figure}
 
 \newpage
 \section{Immersion}
 \paragraph{Definition}
-Immersion is a psychologic state where the subject stops about taking care of its own physical state.
+Immersion is a psychological state where the subject stops about taking care of its own physical state.
 The immersion is quite important in virtual reality. For instance, for the Aerial Percussion, it would come down to the state the performer is when he stops thinking consciously of the disposition of the shapes he interacts with. The musician will then be immersed in the virtual 3D environment which consists in the shapes disposition.
 
 Hence, to immerse an user, multiple parameters are accessible to the 3D instrument designer. 
@@ -57,7 +57,7 @@ In order to understand and define what is the control of a 3D musical instrument
 \begin{enumerate}
 \item First of all, it is a musical instrument, which implies multiples constraints :
 \begin{itemize}
-\item It has to be adapted to the human body shape so that the musican can manipulate it.
+\item It has to be adapted to the human body shape so that the musician can manipulate it.
 \item It has to be precise enough for the performer to be able to learn how to play the instrument.
 \end{itemize}
 \item But it is also an interactive immersive system, which means that it requires :
@@ -75,7 +75,7 @@ Cadoz defines three kinds of gestures that all come to play when playing music:
 \begin{itemize}
 \item Selection gestures : The musician selects a component of the instrument that he will play on. For instance, for stringed musical instruments, where the same tone can be achieved on different strings, but with a different timber, it is the choice of the string on which the note will be played.
 \item Modification gestures : It is an action that modifies the physical state of the instrument. For instance, it would be the case of the guitar player who presses its hand on the guitar strings against the wood. 
-\item Excitation gestures : These actions are the ones generating the actual sound of the instrument, by making the air vibe. On a guitar, it would be picking a string, and on a violin, it would be moving the bow against a string. This gesture is the one the artist can put expression inside : for instance, a violonist can press his bow softly or hardly, in order to change the nuance.
+\item Excitation gestures : These actions are the ones generating the actual sound of the instrument, by making the air vibe. On a guitar, it would be picking a string, and on a violin, it would be moving the bow against a string. This gesture is the one the artist can put expression inside : for instance, a violinist can press his bow softly or hardly, in order to change the nuance.
 \end{itemize}
 
 \paragraph{Control and immersion}
@@ -83,8 +83,8 @@ In order to correctly play an instrument, the user requires some kind of manipul
 Hence the requirement for immersion : being immersed means that the user does not need to put effort into playing the 3D musical instrument, he becomes part of it.
 An easy way to improve immersion is to make the environment react to the performer's movements. 
 
-This can be achieved by using head tracking, with a \brand{Kinect} for instance, or a \ac{HMD}, a \ac{CAVE} or other virtual reality devices and methods like Fishtank VR \cite{robertson1997immersion}. This allows to adapt the scene's projection to the movements of the head of the user : for instance, if he turns his head to the right, the display will adapt by showing him what he would see if it was real.
+This can be achieved by using head tracking, with a \brand{Kinect} for instance, or a \ac{HMD}, a \ac{CAVE} or other virtual reality devices and methods like Fish tank VR \cite{robertson1997immersion}. This allows to adapt the scene's projection to the movements of the head of the user : for instance, if he turns his head to the right, the display will adapt by showing him what he would see if it was real.
 
 Haptic feedback buttons also increase the consciousness of the user's actions, which implies an increased precision.
 
-Florent Berthaut thought about most of these problematics while conceiving \brand{Piivert} \cite{berthaut2010piivert}, the control interface to the \brand{Drile}.
+Florent Berthaut thought about most of these problems while conceiving \brand{Piivert} \cite{berthaut2010piivert}, the control interface to the \brand{Drile}.

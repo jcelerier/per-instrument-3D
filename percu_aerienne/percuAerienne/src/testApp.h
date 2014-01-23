@@ -26,6 +26,7 @@ public:
 	void readSetupFile();
 	void initDrumsticks();
     void updateCam();
+
 	void keyPressed  (int key);
 
     void executeAction(Action a);
@@ -42,12 +43,14 @@ public:
     ofFbo left;
     ofFbo right;
 
-    int screenwidth = 1920;
+    int screenwidth = 800;
     int screenheight = 800;
 
     ofLight light;
 
     double stereoFactor = 0.02;
+    double frontDistance = 1.9;
+    double backDistance = -0.8;
 
     bool facing = true;
 };
