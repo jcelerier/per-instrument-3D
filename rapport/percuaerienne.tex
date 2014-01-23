@@ -1,1 +1,47 @@
 \section{Aerial Percussion}
+// TRADUCTION A VERIFIER
+\paragraph{}
+La percussion aérienne est un instrument de musique innovant par rapport au percussion aérienne car elle ne comporte pas les fûts qu'il faut percuter pour générer le son. La position des baguettes dans l'espace est mesurée à chaque instant grâce à des capteurs. Les données obtenues sont traitées par un logiciel qui permet de détecter les impacts en temps réel et de leur associer des sons. L'utilisation d'un ordinateur permet d'obtenir une palette sonore sans limite. Elle permet aussi au musicien de s'abstraire des contraintes physique de l'instrument, il peut chorégraphier ses mouvements, la mise en scène gagne de l'importance.
+Mais comment fonctionne techniquement cette instrument?
+
+The aerial percussion is a musical instrument innovative from usual percussions because it didn't use actual physical material to generate sounds. The area where the performer throws his sticks is virtual. The position of the sticks in the space is measured constantly thanks to sensors. Input data are processed by a software which detects virtual impacts in real time and associates them to specific sounds. The interest of the computer is the access of an unlimited sound range. This percussion also allows the musician to set aside the physical constraint of the instrument. Therefore, he can choreograph his movements and the visual performance becomes more important.
+But what is the technical set-up ?
+\subsection{Polhemus Liberty}
+
+\paragraph{}
+Le Polhemus Liberty est un dispositif qui permet de connaître la position et l'orientation de capteurs dans l'espace en temps réel. Un émetteur permet de générer un champ magnétique à l'aide de trois antennes fixes placées orthogonalement les unes par rapport aux autres dans un cube d'une dizaine de centimètres de côté. Ce cube, constituant la base émettrice, est relié au bloc central par un câble et est placé idéalement au centre de la zone dans laquelle les acquisitions sont faites. Le champ magnétique diffusé est capté par un second ensemble d'antennes que constitues chacun des capteurs. Ceux-ci se présentent sous la forme de petits cubes de moins d'un centimètre de côté placés au bout des câbles qui les relient au bloc central. Le signal reçu par les capteurs est ensuite échantillonné, traité pas des processeurs DSP (Digital Signal Processor) dans le bloc central, puis envoyé à l'ordinateur via celui-ci par port USB 2.0.
+
+Tous les composants de la percussion sont sur la figure \ref{fig:percu}, de gauche à droite il y a les baguettes, le bloc central et la base émettrice.
+
+The Polhemus Liberty is a device that returns the space position and orientation of sensors in real time. A transmitter generates a magnetic field with three fixed antennas placed orthogonaly from one to each other in a cube of ten centimeters sides. This cube, constituing the transmitting base, is linked with the central block with a cable and is idealy situated at the center of the zone where the acquisition occurs. The diffused magnetic field is captured by a second antenna set established with every sensors. Those ones are little cubes of less than one centimeter sides located at the end of the cables connected to the central bloc. The input signal coming from the sensors is then sampled, treated by DSP (Digital Signal Processor) processors in the central bloc and finally sent to the computer via the USB 2.0 port.
+
+All the components of this percussion can be found on the figure \ref{fig:percu}, from left to right there are the sticks, the central bloc and the transmitting base.
+
+\begin{figure}[h!]
+\centering\includegraphics[scale=0.11]{image/percu.jpg}
+\caption{Polhemus Liberty and sticks.}
+\label{fig:percu}
+\end{figure}
+
+\paragraph{}
+Mais le dispositif ne fonctionne pas seul. Il y a aussi une couche logiciel.
+
+However the device does not work on its own, there is also a software part.
+
+\subsection{SetKreator and FoB}
+
+SetKreator a été développé au \ac{SCRIME} par Joseph Larralde et Sébastien Lebreton. SetKreator est un éditeur d'instruments virtuels pour la percussion aérienne. Il permet de créer des volumes basiques (parallépipèdes, cylindres...) à l'intérieur d'une sphère représentant la zone d'utilisation des capteurs Polhemus, comme à la figure \ref{fig:setkreator}. Il permet aussi d'associer à chaque forme une synthèse sonore particuliére. Il reçoit les données de position des baguettes par flux OSC (Open Sound Control).
+
+SetKreator has been developped at the \ac{SCRIME} by Joseph Larralde and Sébastien Lebreton. SetKreator is a virtual instrument editor for the aerial percussion. It enables to create basic volumes (parallelepipeds, cylinders...) inside a sphere which represents zones where the Polhemus sensors can be used, like in the figure \ref{fig:setkreator}. It also permits to associate each shape to a particular sound synthesis. It receives position data from the sticks via and OSC (Open Sound Control) flux.
+\begin{figure}[h!]
+\centering\includegraphics[scale=0.3]{image/setkreator.png}
+\caption{Interface of SetKreator}
+\label{fig:setkreator}
+\end{figure}
+
+
+Pour faire le lien entre SetKreator et le Polhemus, une autre programme est utile. Il s'agit de FoB. FoB est une petit programme qui reçoit les données de positions du Polhemus via le réseau local de l'ordinateur. Et les renvoie par flux OSC.
+
+To bind SetKreator and Polhemus, another program is useful : FoB. FoB is a small program which receives Polhemus data through the computer local network and sends it back in an OSC flux.
+
+
